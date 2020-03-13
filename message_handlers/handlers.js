@@ -30,6 +30,11 @@ handlers.init = function(){
 	}
 
 	bot.on('message', (msg) => {
+
+		if(!msg.hasOwnProperty('text'){
+			return;
+		}
+
 		const boanoite = "boa noite";
 		for(let key in msg){
 			if(msg.hasOwnProperty(key)){

@@ -11,7 +11,7 @@ const options = {
 	}
 }
 
-const url = APP_URL || 'https://panquecah-bot.herokuapp.com:433';
+const url = APP_URL || 'https://panquecah-bot.herokuapp.com:443';
 
 //const bot = new TelegramBot(TOKEN, {polling: true});
 const bot = new TelegramBot(TOKEN, options);

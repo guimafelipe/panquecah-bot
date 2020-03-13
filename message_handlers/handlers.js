@@ -31,7 +31,7 @@ handlers.init = function(){
 
 	bot.on('message', (msg) => {
 
-		if(!msg.hasOwnProperty('text'){
+		if(!msg.hasOwnProperty('text')){
 			return;
 		}
 

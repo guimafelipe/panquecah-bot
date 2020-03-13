@@ -82,6 +82,19 @@ handlers.init = function(){
 			bot.sendMessage(msg.chat.id, "#Yaoi? (talves owo)",
 			{reply_to_message_id: msg.message_id});
 		}
+
+
+		const perdi = "perdi";
+		const chance = 0.2;
+		if(checkIfContains(msg, perdi)){
+			const poss = Math.random();
+			if(poss < chance){
+				bot.sendMessage(msg.chat.id, "O JOGO",
+				{reply_to_message_id: msg.message_id});
+			}
+		}
+
+
 	});
 	
 };

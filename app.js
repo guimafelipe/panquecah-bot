@@ -3,15 +3,15 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const TOKEN = process.env.TOKEN;
+const { TOKEN, PORT, APP_URL} = process.env;
 
 const options = {
 	webHook: {
-		port: 443
+		port: PORT || 443
 	}
 }
 
-const url = process.env.APP_URL || 'https://panquecah-bot.herokuapp.com:433';
+const url = APP_URL || 'https://panquecah-bot.herokuapp.com:433';
 
 //const bot = new TelegramBot(TOKEN, {polling: true});
 const bot = new TelegramBot(TOKEN, options);

@@ -7,7 +7,7 @@ const TOKEN = process.env.TOKEN;
 
 const options = {
 	webHook: {
-		port: process.env.PORT
+		port: process.env.PORT || 443
 	}
 }
 

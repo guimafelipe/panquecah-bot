@@ -35,16 +35,24 @@ handlers.init = function(){
 			return;
 		}
 
-		const boanoite = "boa noite";
 		for(let key in msg){
 			if(msg.hasOwnProperty(key)){
 				console.log("--- " + key + ": " );
 				console.log(msg[key]);
 			}
 		}
+
+		const boanoite = "boa noite";
 		if(checkIfContains(msg, boanoite)){
 			bot.sendMessage(msg.chat.id,
 			"Boa noite, " + msg.from.first_name + " panquecah!!",
+			{reply_to_message_id: msg.message_id});
+		}
+
+		const bomdia = "bom dia";
+		if(checkIfContains(msg, bomdia)){
+			bot.sendMessage(msg.chat.id,
+			"Bom dia, " + msg.from.first_name + " vadiah!!",
 			{reply_to_message_id: msg.message_id});
 		}
 		

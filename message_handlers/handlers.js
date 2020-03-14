@@ -85,7 +85,7 @@ handlers.init = function(){
 
 
 		const perdi = "perdi";
-		const chance = 0.2;
+		const chance = 0.35;
 		if(checkIfContains(msg, perdi)){
 			const poss = Math.random();
 			if(poss < chance){

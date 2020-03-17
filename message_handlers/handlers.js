@@ -58,10 +58,10 @@ handlers.init = function(){
 		
 		const amado = "amado?", amada = "amada?";
 		if(checkIfContains(msg, amada)){
-			bot.sendMessage(msg.chat.id, "Mamada?",
+			bot.sendMessage(msg.chat.id, "amada?",
 			{reply_to_message_id: msg.message_id});
 		} else if(checkIfContains(msg, amado)){
-			bot.sendMessage(msg.chat.id, "Mamado?",
+			bot.sendMessage(msg.chat.id, "amado?",
 			{reply_to_message_id: msg.message_id});
 		}
 

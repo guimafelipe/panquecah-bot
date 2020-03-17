@@ -39,8 +39,9 @@ async function checkIfIncluded(msg){
 			console.log(group);
 			
 			const username = msg.from.username;
+			const userid = msg.from.id;
 			const user = group.people.filter(function(person){
-				return person.username === username;	
+				return person.userid === userid;	
 			});
 
 			// If user already exists in group, just return
@@ -49,6 +50,7 @@ async function checkIfIncluded(msg){
 			}
 
 			group.people.push({username,
+					userid,
 					hp: 20,
 					hello_phrase: standart_message});
 

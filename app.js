@@ -14,10 +14,15 @@ const options = {
 
 const url = APP_URL || 'https://panquecah-bot.herokuapp.com:443';
 
-const bot = new TelegramBot(TOKEN, {polling: true});
-//const bot = new TelegramBot(TOKEN, options);
+let bot;
 
-//bot.setWebHook(`${url}/bot${TOKEN}`);
+if('IS_DEV' in process.env){
+	bot = new TelegramBot(TOKEN, {polling: true});
+} else {
+	bot = new TelegramBot(TOKEN, options);
+
+	bot.setWebHook(`${url}/bot${TOKEN}`);
+}
 
 const handlers = require('./message_handlers/handlers');
 const error_handlers = require('./error_handlers/handlers');

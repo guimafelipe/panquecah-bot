@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api'),
 
 dotenv.config();
 
-const { TOKEN, PORT, APP_URL} = process.env;
+const { TOKEN, PORT, APP_URL, MONGODB_URI} = process.env;
 
 const options = {
 	webHook: {
@@ -28,7 +28,8 @@ const handlers = require('./message_handlers/handlers');
 const error_handlers = require('./error_handlers/handlers');
 const hp_handlers = require('./hp_handlers/handlers');
 
-mongoose.connect('mongodb://localhost:27017/panquecahbot',
+mongoose.connect(MONGODB_URI ||
+				'mongodb://localhost:27017/panquecahbot',
 				 {useNewUrlParser: true}).catch(error => {
 					console.log("erro ao conectar no db");
 					console.log(error);

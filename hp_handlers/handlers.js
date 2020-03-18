@@ -1,4 +1,5 @@
 const 	Group		= require('../models/group'),
+		hp_phrases	= require('./hp_words.json'),
 		mongoose	= require('mongoose');
 
 const standart_message = 'Oi, __name__ panquecah! Estou com saudades!';
@@ -9,19 +10,6 @@ handlers.set_bot = function (bot) {
 	this.bot = bot;
 	this.init();
 };
-
-function checkIfContains(msg, pat) {
-	return msg.text.toString().toLowerCase().includes(pat);
-};
-
-function checkMultiple(msg, arr_pat){
-	for(let pat in arr_pat){
-		if(checkIfContains(msg, arr_pat[pat])){
-			return true;
-		}
-	}
-	return false;
-}
 
 async function checkIfIncluded(msg){
 	const group_id = msg.chat.id;
@@ -72,6 +60,11 @@ async function checkIfIncluded(msg){
 	});
 }
 
+handlers.responding_hp = function(msg){
+	// Test if message is a reply
+	
+}
+
 handlers.init = function(){
 
 	const bot = this.bot;
@@ -89,6 +82,8 @@ handlers.init = function(){
 		if(!msg.hasOwnProperty('text')){
 			return;
 		}
+
+		this.responding_hp(msg);
 
 	});
 }

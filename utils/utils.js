@@ -1,10 +1,6 @@
 const utils = module.exports = {};
 
 utils.checkIfContains = function (msg, pat) {
-	console.log("message:");
-	console.log(msg);
-	console.log("pattern:");
-	console.log(pat);
 	return msg.text.toString().toLowerCase().includes(pat);
 }
 

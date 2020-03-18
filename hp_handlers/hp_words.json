@@ -1,0 +1,45 @@
+{
+	"regular": [
+	{
+		"pattern": "beijinho",
+		"damage": 1,
+		"phrase": "__nome1__ tomou um beijinho.\n__nome1__ perdeu 1 de HP."
+	},
+	{
+		"pattern": "beijo",
+		"damage": 2,
+		"phrase": "__nome1__ tomou um beijo.\n__nome1__ perdeu 2 de HP."
+	},
+	{
+		"pattern": "beijão",
+		"damage": 3,
+		"phrase": "__nome1__ perdeu 3 de HP.\n__nome1__ está morrendo de amor."
+	},
+	{
+		"pattern": "abraço",
+		"damage": 2,
+		"phrase": "__nome1__ foi abraçado e perdeu 2 de HP."
+	},
+	{
+		"pattern": "carinho",
+		"damage": 2,
+		"phrase": "__nome1__ sofreu carícias e perdeu 2 de HP."
+	},
+	{
+		"pattern": "cafuné",
+		"damage": 2,
+		"phrase": "__nome1__, tome cafuné. E -2 de HP."
+	},
+	{
+		"pattern": "headpat",
+		"damage": 3,
+		"phrase": "Oishi, oishi. Headpat pra você (e -3 de HP) :3"
+	},
+	{
+		"pattern": "sentada",
+		"damage": 5,
+		"phrase": "__nome1__ tomou SENTADAS. Isso custou 5 de HP."
+	}
+	],
+	"final": "__nome1__ perdeu todo o seu HP e morreu!"
+}

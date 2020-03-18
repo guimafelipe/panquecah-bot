@@ -1,7 +1,7 @@
 const 	Group		= require('../models/group'),
 		mongoose	= require('mongoose');
 
-const standart_message = 'Oi, __name__ panquecah!';
+const standart_message = 'Oi, __name__ panquecah! Estou com saudades!';
 
 const handlers = module.exports = {};
 
@@ -39,6 +39,7 @@ async function checkIfIncluded(msg){
 			console.log(group);
 			
 			const username = msg.from.username;
+			const name = msg.from.first_name;
 			const userid = msg.from.id;
 			const user = group.people.filter(function(person){
 				return person.userid === userid;	
@@ -46,15 +47,24 @@ async function checkIfIncluded(msg){
 
 			// If user already exists in group, just return
 			if(user.length != 0){
+				let person = user[0];
+				person.last_message_date = Date.now();
+				person.name = name;
+				group.save();
+				console.log("atualizando data");
 				return;
 			}
 
 			group.people.push({username,
 					userid,
+					name,
 					hp: 20,
-					hello_phrase: standart_message});
+					hello_phrase: standart_message,
+					last_message_date: Date.now(),
+					reminder_cd: Date.now() + 1000*60*60*24 //1 Dia
+				});
 
-			await group.save();
+			group.save();
 
 		} catch(e) {
 			console.log(e);

@@ -24,9 +24,10 @@ if('IS_DEV' in process.env){
 	bot.setWebHook(`${url}/bot${TOKEN}`);
 }
 
-const handlers = require('./message_handlers/handlers');
-const error_handlers = require('./error_handlers/handlers');
-const hp_handlers = require('./hp_handlers/handlers');
+const 	handlers = require('./message_handlers/handlers'),
+		error_handlers = require('./error_handlers/handlers'),
+		reminder = require('./hp_handlers/reminder'),
+		hp_handlers = require('./hp_handlers/handlers');
 
 mongoose.connect(MONGODB_URI ||
 				'mongodb://localhost:27017/panquecahbot',
@@ -37,4 +38,5 @@ mongoose.connect(MONGODB_URI ||
 
 handlers.set_bot(bot);
 hp_handlers.set_bot(bot);
+reminder.set_bot(bot);
 error_handlers.set_bot(bot);

@@ -3,13 +3,16 @@ const mongoose = require('mongoose'),
 
 let personSchema = new mongoose.Schema({
 	username: String,
-	userid: String,
+	name: String,
+	userid: Number,
 	hp: Number,
-	hello_phrase: String
+	hello_phrase: String,
+	last_message_date: Number, // Data da ultima mensagem enviada
+	reminder_cd: Number // Cooldown para marcar a pessoa no grupo
 });
 
 let groupSchema = new mongoose.Schema({
-	group_id: String,
+	group_id: Number,
 	people: [personSchema]
 });
 

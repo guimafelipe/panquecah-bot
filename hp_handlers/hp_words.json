@@ -18,7 +18,7 @@
 	{
 		"pattern": "abraço",
 		"damage": 2,
-		"phrase": "__nome1__ foi abraçado e perdeu 2 de HP."
+		"phrase": "__nome1__ foi abraçada e perdeu 2 de HP."
 	},
 	{
 		"pattern": "carinho",
@@ -43,7 +43,16 @@
 	{
 		"pattern": "chupada",
 		"damage": 5,
-		"phrase": "__nome1__ foi chupado. 5 de HP também foram."
+		"phrase": "__nome1__ foi chupada. 5 de HP também foram."
+	},
+	{
+		"pattern": "mamada",
+		"damage": 5,
+		"phrase": "__nome1__ levou uma mamada surpresa.\n5 de HP também foram mamados."
+	},{
+		"pattern": "dedada",
+		"damage": 4,
+		"phrase": "Uma dedadinha foi dada em __nome1__.\n4 de HP pela gentileza."
 	}
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"

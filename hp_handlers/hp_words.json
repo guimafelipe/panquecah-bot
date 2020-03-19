@@ -53,6 +53,10 @@
 		"pattern": "dedada",
 		"damage": 4,
 		"phrase": "Uma dedadinha foi dada em __nome1__.\n4 de HP pela gentileza."
+	},{
+		"pattern": "sarrada",
+		"damage": 4,
+		"phrase": "__nome1__ levou uma sarrada!\n4 de HP foram sarrados também."
 	}
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"

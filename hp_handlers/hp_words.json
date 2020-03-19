@@ -39,7 +39,12 @@
 		"pattern": "sentada",
 		"damage": 5,
 		"phrase": "__nome1__ tomou SENTADAS. Isso custou 5 de HP."
+	},
+	{
+		"pattern": "chupada",
+		"damage": 5,
+		"phrase": "__nome1__ foi chupado. 5 de HP também foram."
 	}
 	],
-	"final": "__nome1__ perdeu todo o seu HP e morreu!"
+	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"
 }

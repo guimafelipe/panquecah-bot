@@ -1,8 +1,11 @@
 const 	Group		= require('../models/group'),
 		hp_phrases	= require('./hp_words.json'),
+		utils		= require('../utils/utils'),
 		mongoose	= require('mongoose');
 
 const standart_message = 'Oi, __name__ panquecah! Estou com saudades!';
+const MAX_HP = 10;
+const DEAD_LOVE_STICKER = 'CAACAgQAAx0CVxgUxQACAQ5ec9vZEq4-Zvs9MOw0440wk7jamgACiwADS2nuEDLWeAeRE5xUGAQ';
 
 const handlers = module.exports = {};
 
@@ -13,6 +16,8 @@ handlers.set_bot = function (bot) {
 
 async function checkIfIncluded(msg){
 	const group_id = msg.chat.id;
+	
+	// TODO: Refactor code below to async/await
 	Group.findOne({group_id}, async function(err, group) {
 		if(err){
 			console.log(err);
@@ -46,7 +51,7 @@ async function checkIfIncluded(msg){
 			group.people.push({username,
 					userid,
 					name,
-					hp: 20,
+					hp: MAX_HP,
 					hello_phrase: standart_message,
 					last_message_date: Date.now(),
 					reminder_cd: Date.now() + 1000*60*60*24 //1 Dia
@@ -60,8 +65,75 @@ async function checkIfIncluded(msg){
 	});
 }
 
+handlers.execute_hp_response = async function(msg, i){
+	const bot = this.bot;
+	const phrase = hp_phrases.regular[i];
+
+	const target_name = msg.reply_to_message.from.first_name,
+			target_id = msg.reply_to_message.from.id;
+	
+	const response_text = phrase.phrase.replace(/__nome1__/gi,
+												target_name);
+
+	const group_id = msg.chat.id;
+	try{
+		const group = await Group.findOne({group_id}).exec();
+
+				
+		const try_user = group.people.filter(function(person){
+			return person.userid === target_id;	
+		});
+
+		const user = try_user[0];
+		const curr_hp = user.hp;
+		const damage = phrase.damage;
+		let new_hp = curr_hp - damage;
+
+
+		let died = false;
+
+		if(new_hp <= 0){
+			died = true;
+			new_hp = MAX_HP;
+		}
+
+
+		user.hp = new_hp;
+
+		await group.save();
+
+		await bot.sendMessage(group_id, response_text);
+
+		const finalMsg = hp_phrases.finalMsg.replace(/__nome1__/i,
+													target_name);	
+		if(died){
+			await bot.sendMessage(group_id, finalMsg);
+			bot.sendSticker(group_id, DEAD_LOVE_STICKER, {});
+		}
+
+	} catch(e){
+		console.log("Erro na execução do hp response");
+		console.log(e);
+	}
+}
+
 handlers.responding_hp = function(msg){
 	// Test if message is a reply
+	if(!msg.hasOwnProperty('reply_to_message')){
+		return;
+	}
+
+	const phrases = hp_phrases.regular;
+	const {text} = msg;
+
+	// TODO: refactor code below to use .findOne() 
+	for(let i = 0; i < phrases.length; i++){
+		const {pattern} = phrases[i];
+		if(utils.checkEquality(msg, pattern)){
+			this.execute_hp_response(msg, i);
+			return;
+		}
+	}
 	
 }
 

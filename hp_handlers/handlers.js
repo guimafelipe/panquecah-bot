@@ -123,6 +123,10 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
+	if(msg.reply_to_message.from.is_bot){
+		return;
+	}
+
 	const phrases = hp_phrases.regular;
 	const {text} = msg;
 

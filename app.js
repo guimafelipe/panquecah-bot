@@ -28,6 +28,7 @@ const 	handlers = require('./message_handlers/handlers'),
 		error_handlers = require('./error_handlers/handlers'),
 		reminder = require('./hp_handlers/reminder'),
 		stickers = require('./sticker_and_gifs_handlers/handlers'),
+		commands = require('./commands/commands'),
 		hp_handlers = require('./hp_handlers/handlers');
 
 mongoose.connect(MONGODB_URI ||
@@ -41,4 +42,5 @@ handlers.set_bot(bot);
 hp_handlers.set_bot(bot);
 reminder.set_bot(bot);
 stickers.set_bot(bot);
+commands.set_bot(bot);
 error_handlers.set_bot(bot);

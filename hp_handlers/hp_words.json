@@ -49,15 +49,68 @@
 		"pattern": "mamada",
 		"damage": 5,
 		"phrase": "__nome1__ levou uma mamada surpresa.\n5 de HP também foram mamados."
-	},{
+	},
+	{
 		"pattern": "dedada",
 		"damage": 4,
 		"phrase": "Uma dedadinha foi dada em __nome1__.\n4 de HP pela gentileza."
-	},{
+	},
+	{
 		"pattern": "sarrada",
 		"damage": 4,
 		"phrase": "__nome1__ levou uma sarrada!\n4 de HP foram sarrados também."
+	},
+	{
+		"pattern": "cafungada",
+		"damage": 3,
+		"phrase": "__nome1__ foi cafungada.\n'Você tem um cheiro delicioso, sua vadiah. Cheiro de panquecah~'"
+	},
+	{
+		"pattern": "lambida",
+		"damage": 4,
+		"phrase": "__nome1__ recebeu uma lambida bem gostosa :9 \nPerdeu 4 de HP por ser uma vadiah deliciosa."
+	},
+	{
+		"pattern": "lambidinha",
+		"damage": 3,
+		"phrase": "__nome1__ recebeu uma lambidinha no lugar certo.\nNão se aguentou e perdeu 3 de HP."
+	},
+	{
+		"pattern": "mordida",
+		"damage": 4,
+		"phrase": "__nome1__ teve o pescoço mordido sem piedade por um vampiro adolescente que sugou 5 de HP junto com o sangue."
+	},
+	{
+		"pattern": "mordidinha",
+		"damage": 1,
+		"phrase": "__nome1__ foi levemente mordiscadah e perdeu 1 de HP. Só pra deixar com gostinho."
+	},
+	{
+		"pattern": "moide",
+		"damage": 0,
+		"phrase": "__nome1__ foi moidido OwO. \nMas nada aconteceu."
+	},
+	{
+		"pattern": "apalpada",
+		"damage": 3,
+		"phrase": "__nome1__ sentiu um par de mãos bem gostoso.\nTambém se sentiu perdendo 3 de HP, o que foi menos gostosinho mas valeu a pena. "
+	},
+	{
+		"pattern": "bilada",
+		"damage": 4,
+		"phrase": "__nome1__ foi bilada impiedosamente, provavelmente por alguém com um bilau.\nPerdeu 4 de HP."
+	},
+	{
+		"pattern": "sarrada no ar",
+		"damage": 5,
+		"phrase": "__nome1__ foi SARRADA EM PLENO AR o: \n5 de HP voaram pelo espaço."
+	},
+	{
+		"pattern": "acariciada",
+		"damage": 2,
+		"phrase": "__nome1__ foi acariciada. Você decide como.\n Perdeu 2 de HP."
 	}
+
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"
 }

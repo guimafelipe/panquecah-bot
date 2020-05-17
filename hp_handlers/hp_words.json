@@ -3,32 +3,37 @@
 	{
 		"pattern": "beijinho",
 		"damage": 1,
-		"phrase": "__nome1__ tomou um beijinho.\n__nome1__ perdeu 1 de HP."
+		"phrase": "__nome1__ tomou um beijinho! :3\n__nome1__ perdeu 1 de HP."
 	},
 	{
 		"pattern": "beijo",
-		"damage": 2,
-		"phrase": "__nome1__ tomou um beijo.\n__nome1__ perdeu 2 de HP."
+		"damage": 3,
+		"phrase": "__nome2__ deu um beijo gostoso em __nome1__. Vocês decidem onde.\n__nome1__ perdeu 3 de HP."
 	},
 	{
 		"pattern": "beijão",
-		"damage": 3,
-		"phrase": "__nome1__ perdeu 3 de HP.\n__nome1__ está morrendo de amor."
+		"damage": 5,
+		"phrase": "As línguas de __nome1__ e __nome2__ travaram uma batalha. \n__nome1__ deve ter perdido porque, sem fôlego, perdeu 5 de HP."
 	},
 	{
 		"pattern": "abraço",
-		"damage": 2,
-		"phrase": "__nome1__ foi abraçada e perdeu 2 de HP."
+		"damage": 3,
+		"phrase": "__nome1__ ganhou um abraço quentinho e perdeu 3 de HP."
+	},
+	{
+		"pattern": "abração",
+		"damage": 5,
+		"phrase": "\" AAAAAAAA, toma um abraço,__nome1__!\" \n__nome1__ ganhou um abraço empolgado e perdeu 5 de HP."
 	},
 	{
 		"pattern": "carinho",
-		"damage": 2,
-		"phrase": "__nome1__ sofreu carícias e perdeu 2 de HP."
+		"damage": 3,
+		"phrase": "__nome1__ sofreu carícias e perdeu 3 de HP."
 	},
 	{
 		"pattern": "cafuné",
-		"damage": 2,
-		"phrase": "__nome1__, tome cafuné. E -2 de HP."
+		"damage": 4,
+		"phrase": "__nome1__, tome cafuné. E -4 de HP."
 	},
 	{
 		"pattern": "headpat",
@@ -49,14 +54,66 @@
 		"pattern": "mamada",
 		"damage": 5,
 		"phrase": "__nome1__ levou uma mamada surpresa.\n5 de HP também foram mamados."
-	},{
+	},
+	{
 		"pattern": "dedada",
 		"damage": 4,
 		"phrase": "Uma dedadinha foi dada em __nome1__.\n4 de HP pela gentileza."
-	},{
+	},
+	{
 		"pattern": "sarrada",
 		"damage": 4,
 		"phrase": "__nome1__ levou uma sarrada!\n4 de HP foram sarrados também."
+	},
+	{
+		"pattern": "potinho",
+		"damage": 0,
+		"phrase": "__nome1__ foi colocada em um potinho e protegida de todo o mal."
+	},
+	{
+		"pattern": "tapinha",
+		"damage": 2,
+		"phrase": "Um tapinha não dói, mas __nome1__ vai perder 2 HP mesmo assim. \nMexe, ordinária!"
+	},
+	{
+		"pattern": "espirro",
+		"damage": 0,
+		"phrase": "__nome1__ morreu, mas não foi de amor. Foi de coronavírus.\n__nome2__ deveria ser presa."
+	},
+	{
+		"pattern": "spank",
+		"damage": 6,
+		"phrase": "__nome2__ colocou __nome1__ em posição e lhe deu palmadas muito bem dadas.\nConte-as junto com o HP perdido:\n Um\nDois\nTrês\nQuatro\nCinco\nSeis\n__nome1__ está vermelhinha."
+	},
+	{
+		"pattern": "chamego",
+		"damage": 3,
+		"phrase": "__nome1__ ganhou um pacote de papel Chamequinho. \nDesculpa, foi um chamego de __nome2__ mesmo e perdeu 3 HP."
+	},
+	{
+		"pattern": "rabada",
+		"damage": 4,
+		"phrase": "__nome1__ tomou rabadas de __nome2__, que tem uma raba de qualidade e lhe tirou 4 HP."
+	},
+	{
+		"pattern": "chupão",
+		"damage": 3,
+		"phrase": "__nome1__ vai ter que ser muito criativa para esconder esse chupão em lugar misterioso. \nMenos 3HP."
+	},
+	{
+		"pattern": "chicotada",
+		"damage": 5,
+		"phrase": "De quatro, saia pra cima e calcinha pra baixo, __nome1__ contou 5 chicotadas e ficou marcadinha. \nMenos 5 de HP."
+	},
+	{
+		"pattern": "cutucada",
+		"damage": 2,
+		"phrase": "__nome1__ foi cutucada. Com o quê, não sabemos. \nPerdeu 2 HP."
+	},
+	{
+		"pattern": "gangbang",
+		"damage": 6,
+		"phrase": "__nome1__ foi possuída por tantos machos deliciosos que perdeu a conta. \nMas foram pelo menos 6, pelos pontos de HP perdidos."
 	}
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"

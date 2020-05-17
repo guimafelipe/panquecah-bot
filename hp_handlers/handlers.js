@@ -72,8 +72,10 @@ handlers.execute_hp_response = async function(msg, i){
 	const target_name = msg.reply_to_message.from.first_name,
 			target_id = msg.reply_to_message.from.id;
 	
-	const response_text = phrase.phrase.replace(/__nome1__/gi,
-												target_name);
+	const from_name = msg.from.first_name;
+	const response_text = phrase.phrase
+		.replace(/__nome1__/gi, target_name)
+		.replace(/__nome2__/gi, from_name);
 
 	const group_id = msg.chat.id;
 	try{

@@ -113,7 +113,9 @@
 	{
 		"pattern": "gangbang",
 		"damage": 6,
-		"phrase": "__nome1__ foi possuída por tantos machos deliciosos que perdeu a conta. \nMas foram pelo menos 6, pelos pontos de HP perdidos.",
+		"phrase": "__nome1__ foi possuída por tantos machos deliciosos que perdeu a conta. \nMas foram pelo menos 6, pelos pontos de HP perdidos."
+	},
+	{
 		"pattern": "cafungada",
 		"damage": 3,
 		"phrase": "__nome1__ foi cafungada.\n'Você tem um cheiro delicioso, sua vadiah. Cheiro de panquecah~'"

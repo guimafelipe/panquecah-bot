@@ -120,6 +120,21 @@ handlers.execute_hp_response = async function(msg, i){
 }
 
 handlers.responding_hp = function(msg){
+
+	const phrases = hp_phrases.regular;
+	const {text} = msg;
+
+	if(utils.checkEquality(msg, "!comandos")){
+		let response = "Comandos da panquecah:\n";
+		for(let i = 0; i < phrases.length; i++){
+			const {pattern} = phrases[i];
+			response += `* ${pattern}\n`;
+		}
+		const group_id = msg.chat.id;
+		this.bot.sendMessage(group_id, response);
+		return;
+	}
+
 	// Test if message is a reply
 	if(!msg.hasOwnProperty('reply_to_message')){
 		return;
@@ -128,9 +143,6 @@ handlers.responding_hp = function(msg){
 	if(msg.reply_to_message.from.is_bot){
 		return;
 	}
-
-	const phrases = hp_phrases.regular;
-	const {text} = msg;
 
 	// TODO: refactor code below to use .findOne() 
 	for(let i = 0; i < phrases.length; i++){

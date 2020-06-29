@@ -92,11 +92,16 @@ handlers.init = function(){
 		}
 		
 		const galvao = "galvão";
-		if(utils.checkIfContains(msg, galvao)){
+		if(utils.startsWith(msg, galvao)){
 			bot.sendMessage(msg.chat.id, "Diga lá, Tino!",
 			{reply_to_message_id: msg.message_id});
 		}
 
+		const sentiu = "sentiu";
+		if(utils.startsWith(msg, sentiu)){
+			bot.sendMessage(msg.chat.id, ">.<",
+			{reply_to_message_id: msg.message_id});
+		}
 
 	});
 	

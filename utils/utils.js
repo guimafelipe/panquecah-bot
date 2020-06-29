@@ -17,3 +17,8 @@ utils.checkMultiple = function(msg, arr_pat){
 	return false;
 }
 
+utils.startsWith = function(msg, pat) {
+	let j = pat.length;
+	return msg.text.substring(0, j) === pat;
+}
+

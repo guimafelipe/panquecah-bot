@@ -90,6 +90,12 @@ handlers.init = function(){
 				{reply_to_message_id: msg.message_id});
 			}
 		}
+		
+		const galvao = "galvão";
+		if(utils.checkIfContains(msg, galvao)){
+			bot.sendMessage(msg.chat.id, "Diga lá, Tino!",
+			{reply_to_message_id: msg.message_id});
+		}
 
 
 	});

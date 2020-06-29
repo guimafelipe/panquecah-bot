@@ -65,7 +65,7 @@ reminder.init = function(){
 	}
 
 	setInterval(function(){
-		reminder.remind_people()	
+		// reminder.remind_people()	
 	}, 1000*60*60);
 
 }

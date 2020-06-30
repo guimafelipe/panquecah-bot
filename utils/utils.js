@@ -19,6 +19,6 @@ utils.checkMultiple = function(msg, arr_pat){
 
 utils.startsWith = function(msg, pat) {
 	let j = pat.length;
-	return msg.text.substring(0, j) === pat;
+	return msg.text.substring(0, j).toLowerCase() === pat;
 }
 

@@ -8,6 +8,8 @@ const handlers = module.exports = {};
 handlers.set_bot = function (bot) {
 	this.bot = bot;
 	this.init();
+	this.nsfw_counter = 0;
+	this.nsft_limit = 3;
 };
 
 handlers.init = function(){
@@ -40,9 +42,12 @@ handlers.init = function(){
 							'buceta', 'pau', 'pinto'];
 
 		if(utils.checkMultiple(msg, nsfw_arr)){
+			this.nsfw_counter++;
+			if(this.nsft_limit > this.nsfw_counter) return;
 			bot.sendSticker(msg.chat.id,
 			SHIMONETA_STICKER,
 			{reply_to_message_id: msg.message_id});
+			this.nsfw_counter = 0;
 		}
 
 	});

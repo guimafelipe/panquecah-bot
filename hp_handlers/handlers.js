@@ -43,6 +43,7 @@ async function checkIfIncluded(msg){
 				let person = user[0];
 				person.last_message_date = Date.now();
 				person.name = name;
+				person.reminded = false;
 				group.save();
 				console.log("atualizando data");
 				return;
@@ -53,6 +54,7 @@ async function checkIfIncluded(msg){
 					name,
 					hp: MAX_HP,
 					hello_phrase: standart_message,
+					reminded: false,
 					last_message_date: Date.now(),
 					reminder_cd: Date.now() + 1000*60*60*24 //1 Dia
 				});

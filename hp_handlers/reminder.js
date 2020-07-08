@@ -38,15 +38,20 @@ reminder.remind_people = async function() {
 
 		people.forEach(async function(person) {
 			const {last_message_date,
-					hello_phrase, reminder_cd} = person;
+					hello_phrase, reminder_cd, remided} = person;
 
 			console.log("LMD: " + last_message_date);
 			console.log("DN:  " + Date.now());
+			console.lof("REMINDED: " + reminded);
+
+			if(reminded) return;
 
 			if(last_message_date + DAY < Date.now()){
 				await reminder.send_reminder(group.group_id, person);
 
 				person.last_message_date = Date.now();
+
+				person.reminded = true;
 			} 
 
 		});
@@ -65,7 +70,7 @@ reminder.init = function(){
 	}
 
 	setInterval(function(){
-		// reminder.remind_people()	
+		reminder.remind_people()	
 	}, 1000*60*60);
 
 }

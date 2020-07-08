@@ -8,7 +8,8 @@ let personSchema = new mongoose.Schema({
 	hp: Number,
 	hello_phrase: String,
 	last_message_date: Number, // Data da ultima mensagem enviada
-	reminder_cd: Number // Cooldown para marcar a pessoa no grupo
+	reminder_cd: Number, // Cooldown para marcar a pessoa no grupo
+	reminded: { type: Boolean, default: false}
 });
 
 let groupSchema = new mongoose.Schema({

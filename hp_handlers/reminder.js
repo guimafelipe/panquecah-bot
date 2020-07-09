@@ -42,9 +42,9 @@ reminder.remind_people = async function() {
 
 			console.log("LMD: " + last_message_date);
 			console.log("DN:  " + Date.now());
-			console.lof("REMINDED: " + reminded);
 
 			if(reminded) return;
+			console.log("REMINDED: " + reminded);
 
 			if(last_message_date + DAY < Date.now()){
 				await reminder.send_reminder(group.group_id, person);

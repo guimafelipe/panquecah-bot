@@ -38,13 +38,13 @@ reminder.remind_people = async function() {
 
 		people.forEach(async function(person) {
 			const {last_message_date,
-					hello_phrase, reminder_cd, remided} = person;
+					hello_phrase, reminder_cd, reminded} = person;
 
 			console.log("LMD: " + last_message_date);
 			console.log("DN:  " + Date.now());
+			console.log("REMINDED: " + reminded);
 
 			if(reminded) return;
-			console.log("REMINDED: " + reminded);
 
 			if(last_message_date + DAY < Date.now()){
 				await reminder.send_reminder(group.group_id, person);

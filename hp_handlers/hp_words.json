@@ -83,7 +83,7 @@
 	{
 		"pattern": "spank",
 		"damage": 6,
-		"phrase": "__nome2__ colocou __nome1__ em posição e lhe deu palmadas muito bem dadas.\nConte-as junto com o HP perdido:\n Um\nDois\nTrês\nQuatro\nCinco\nSeis\n__nome1__ está vermelhinha."
+		"phrase": "__nome2__ colocou __nome1__ em posição e lhe deu palmadas muito bem dadas.\nConte-as junto com o HP perdido:\nUm\nDois\nTrês\nQuatro\nCinco\nSeis\n__nome1__ está vermelhinha."
 	},
 	{
 		"pattern": "chamego",
@@ -159,6 +159,11 @@
 		"pattern": "sarrada no ar",
 		"damage": 5,
 		"phrase": "__nome1__ foi SARRADA EM PLENO AR o: \n5 de HP voaram pelo espaço."
+	},
+	{
+		"pattern": "massagem",
+		"damage": 5,
+		"phrase": "__nome1__ foi massageada brutalmente pelas mãos talentosas de __nome2__.\nPerdeu 5 HP mas valeu a pena."
 	},
 	{
 		"pattern": "acariciada",

@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api'),
 
 dotenv.config();
 
-const { TOKEN, PORT, APP_URL, MONGODB_URI} = process.env;
+const { TOKEN, PORT, APP_URL, DB_URI} = process.env;
 
 const options = {
 	webHook: {

@@ -31,7 +31,7 @@ const 	handlers = require('./message_handlers/handlers'),
 		commands = require('./commands/commands'),
 		hp_handlers = require('./hp_handlers/handlers');
 
-mongoose.connect(MONGODB_URI ||
+mongoose.connect(DB_URI ||
 				'mongodb://localhost:27017/panquecahbot',
 				 {useNewUrlParser: true}).catch(error => {
 					console.log("erro ao conectar no db");

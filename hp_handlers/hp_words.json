@@ -166,6 +166,11 @@
 		"phrase": "__nome1__ foi massageada brutalmente pelas mãos talentosas de __nome2__.\nPerdeu 5 HP mas valeu a pena."
 	},
 	{
+		"pattern": "anotado",
+		"damage": 0,
+		"phrase": "__nome2__ anotou algo para ser esquecido já já."
+	},
+	{
 		"pattern": "acariciada",
 		"damage": 2,
 		"phrase": "__nome1__ foi acariciada. Você decide como.\n Perdeu 2 de HP."

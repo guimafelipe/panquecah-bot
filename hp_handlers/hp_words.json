@@ -117,7 +117,7 @@
 	},
 	{
 		"pattern": "cafungada",
-		"damage": 3,
+		"damage": 0,
 		"phrase": "__nome1__ foi cafungada.\n'Você tem um cheiro delicioso, sua vadiah. Cheiro de panquecah~'"
 	},
 	{
@@ -174,8 +174,167 @@
 		"pattern": "acariciada",
 		"damage": 2,
 		"phrase": "__nome1__ foi acariciada. Você decide como.\n Perdeu 2 de HP."
+	},
+	{
+		"pattern": "chamequinho",
+		"damage": 3,
+		"phrase": "__nome1__ ganhou um chamego de __nome2__. \nDesculpa, foi um pacote de papel Chamequinho mesmo e perdeu 3 HP."
+	},
+	{
+		"pattern": "conchinha",
+		"damage": 4,
+		"phrase": "__nome1__ foi abraçada de conchinha por __nome2__ e se sente amada e protegida. \nPerdeu 4 HP enquanto caía no soninho."
+	},
+	{
+		"pattern": "onii-chan",
+		"damage": 0,
+		"phrase": "__nome2__ chamou __nome1__ de onii-chan. O cheiro de insenso toma conta do ambiente.\n Respeitem todas as formas de amor!!!1111!!!11"
+	},
+	{
+		"pattern": "bento",
+		"damage": 2,
+		"phrase": "__nome1__ ganhou um bento cheio recheado de amor (e comida). Perdeu 2 HP enquanto enchia o buxin."
+	},
+	{
+		"pattern": "peteleco",
+		"damage": 1,
+		"phrase": "__nome1__ recebeu um peteleco. \nA troco de quê, balinha??\n Perdeu 1 HP."
+	},
+	{
+		"pattern": "aconchego",
+		"damage": 4,
+		"phrase": "__nome1__ se aconchegou esplendorosamente em __nome2__. Não há lugar melhor no mundo.\n Perdeu 4 HP pelo conforto."
+	},
+	{
+		"pattern": "de quatro",
+		"damage": 0,
+		"phrase": "__nome2__ ficou de quatro para __nome1__. Bate e maltrata essa puta safadah.\n __nome1__ perdeu 4 HP."
+	},
+	{
+		"pattern": "enterrada",
+		"damage": 0,
+		"phrase": "__nome2__ enterrou não se sabe o quê em __nome1__. Também não se sabe onde.\n Mas __nome1__ parece feliz e perdeu 3 HP."
+	},
+	{
+		"pattern": "velório",
+		"damage": 0,
+		"phrase": "__nome2__ organizou um velório às pressas para __nome1__.\n Foi com muito carinho, mas __nome1__ já estava morta.\n RIP __nome1__"
+	},
+	{
+		"pattern": "praise",
+		"damage": 1,
+		"phrase": "__nome1__ has been praised. She now knows she's a good girl (and lost 1 HP)."
+	},
+	{
+		"pattern": "marvelize",
+		"damage": 3,
+		"phrase": "__nome2__ lies down with __nome1__, pet her and says she's marvelous.\n __nome1__ lost 3 HP and is now a cat."
+	},
+	{
+		"pattern": "chá de camomila",
+		"damage": -5,
+		"phrase": "__nome1__ tomou um chá de camomila delicioso e dormiu tranquilamente por 1000 anos. Que soneca gostosa!\n Recuperou 5 HP."
+	},
+	{
+		"pattern": "café",
+		"damage": -3,
+		"phrase": "__nome1__ bebeu um café preto gostosinho. Recuperou 3 HP."
+	},
+	{
+		"pattern": "afago",
+		"damage": 2,
+		"phrase": "__nome1__ foi afagado por mafagafos. Ops, foi por __nome2__ mesmo.\n -2 HP."
+	},
+	{
+		"pattern": "colinho",
+		"damage": 5,
+		"phrase": "__nome1__ repousa eternamente no berço esplêndido do colinho de __nome2__. O aluguel do colo custou apenas 5 HP"
+	},
+	{
+		"pattern": "montinho",
+		"damage": 5,
+		"phrase": "1, 2, 3, 4, 5... __nome1__ perdeu as contas de quantas panquecahs se amontoaram em cima dela.\n Ganhou uma pilha de panquecahs e perdeu 5 HP esmagadinhos."
+	},
+	{
+		"pattern": "biscoito",
+		"damage": 1,
+		"phrase": "__nome2__ esfregou um biscoito na cara de __nome1__, que perdeu 1 HP.\n Toma, sua biscoiteirah!"
+	},
+	{
+		"pattern": "tampão de ouvido",
+		"damage": 0,
+		"phrase": "__nome1__ recebeu um tampão de ouvido para abafar os sons desse mundo frio e cruel."
+	},
+	{
+		"pattern": "pedestal",
+		"damage": 4,
+		"phrase": "__nome2__ colocou __nome1__ em um pedestal, para ser adorada como a deusah panquecah que é.\n -4 HP para a deusah."
+	},
+	{
+		"pattern": "choke",
+		"damage": 3,
+		"phrase": "__nome1__ sente as mãos de __nome2__ ao redor de seu pescoço, apertando mais e mais.\n Perdeu 3 HP e esperemos que não a vida."
+	},
+	{
+		"pattern": "SLAP",
+		"damage": 0,
+		"phrase": "__nome1__ levou um tapão na cara de __nome2__. Acorda pra vida! Reage, panquecah!"
+	},
+	{
+		"pattern": "amarrada",
+		"damage": 4,
+		"phrase": "__nome1__ foi artisticamente restringida por cordas. Espero que __nome2__ saiba desamarrar.\n Perdeu 4 HP (e a sensação do braço esquerdo)."
+	},
+	{
+		"pattern": "lap dance",
+		"damage": 4,
+		"phrase": "__nome1__ foi hipnotizada por uma dança sensual de __nome2__, que finalizou lhe tirando 4 HP."
+	},
+	{
+		"pattern": "beijo grego",
+		"damage": 4,
+		"phrase": "__nome1__ sentiu a língua de __nome2__ adentrar onde o sol não bate. Ficou louquinha e perdeu 4 HP."
+	},
+	{
+		"pattern": "vendida",
+		"damage": 0,
+		"phrase": "__nome1__ foi vendida por __nome2__. O que mais você esperava? Muitas pessoas pagam para comer panquecahs deliciosas."
+	},
+	{
+		"pattern": "bukkake",
+		"damage": 3,
+		"phrase": "__nome1__ recebeu jatos de sorvete de baunilha convenientemente líquido na cara de vários machos deliciosos.\n Perdeu 3 HP."
+	},
+	{
+		"pattern": "pisada",
+		"damage": 2,
+		"phrase": "__nome1__ foi pisada sem clemência por __nome2__. Com sorte era fetiche dela. 2 HP também foram pisados."
+	},
+	{
+		"pattern": "garganta profunda",
+		"damage": 3,
+		"phrase": "__nome1__ entrou e está procurando o final até agora. Vigorosamente.\n Perdeu 3 HP como resultado do esforço."
+	},
+	{
+		"pattern": "penetrada",
+		"damage": 3,
+		"phrase": "__nome1__ gemeu sendo penetrada por __nome2__. Aaaaaiiiin e menos 3 HP."
+	},
+	{
+		"pattern": "metida",
+		"damage": 4,
+		"phrase": "__nome1__ recebeu uma metida de __nome2__. \n AI QUE DELÍCIA\n Perdeu 4 HP mas valeu a pena."
+	},
+	{
+		"pattern": "amor",
+		"damage": 6,
+		"phrase": "'__nome1__, receba todo o meu amor!'\n __nome1__ foi metralhada pelo amor de __nome2__ e perdeu 6 HP."
+	},
+	{
+		"pattern": "tesourada",
+		"damage": 4,
+		"phrase": "__nome1__ e __nome2__ estão em meio a uma tesourada deliciosa. __nome1__ não se aguentou e perdeu 4 HP."
 	}
-
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"
 }

@@ -173,7 +173,7 @@
 	{
 		"pattern": "acariciada",
 		"damage": 2,
-		"phrase": "__nome1__ foi acariciada. Você decide como.\n Perdeu 2 de HP."
+		"phrase": "__nome1__ foi acariciada. Você decide como.\nPerdeu 2 de HP."
 	},
 	{
 		"pattern": "chamequinho",
@@ -183,12 +183,12 @@
 	{
 		"pattern": "conchinha",
 		"damage": 4,
-		"phrase": "__nome1__ foi abraçada de conchinha por __nome2__ e se sente amada e protegida. \nPerdeu 4 HP enquanto caía no soninho."
+		"phrase": "__nome1__ foi abraçada de conchinha por __nome2__ e se sente amada e protegida.\nPerdeu 4 HP enquanto caía no soninho."
 	},
 	{
 		"pattern": "onii-chan",
 		"damage": 0,
-		"phrase": "__nome2__ chamou __nome1__ de onii-chan. O cheiro de insenso toma conta do ambiente.\n Respeitem todas as formas de amor!!!1111!!!11"
+		"phrase": "__nome2__ chamou __nome1__ de onii-chan. O cheiro de insenso toma conta do ambiente.\nRespeitem todas as formas de amor!!!1111!!!11"
 	},
 	{
 		"pattern": "bento",
@@ -198,27 +198,27 @@
 	{
 		"pattern": "peteleco",
 		"damage": 1,
-		"phrase": "__nome1__ recebeu um peteleco. \nA troco de quê, balinha??\n Perdeu 1 HP."
+		"phrase": "__nome1__ recebeu um peteleco.\nA troco de quê, balinha??\nPerdeu 1 HP."
 	},
 	{
 		"pattern": "aconchego",
 		"damage": 4,
-		"phrase": "__nome1__ se aconchegou esplendorosamente em __nome2__. Não há lugar melhor no mundo.\n Perdeu 4 HP pelo conforto."
+		"phrase": "__nome1__ se aconchegou esplendorosamente em __nome2__. Não há lugar melhor no mundo.\nPerdeu 4 HP pelo conforto."
 	},
 	{
 		"pattern": "de quatro",
 		"damage": 0,
-		"phrase": "__nome2__ ficou de quatro para __nome1__. Bate e maltrata essa puta safadah.\n __nome1__ perdeu 4 HP."
+		"phrase": "__nome2__ ficou de quatro para __nome1__. Bate e maltrata essa puta safadah.\n__nome1__ perdeu 4 HP."
 	},
 	{
 		"pattern": "enterrada",
 		"damage": 0,
-		"phrase": "__nome2__ enterrou não se sabe o quê em __nome1__. Também não se sabe onde.\n Mas __nome1__ parece feliz e perdeu 3 HP."
+		"phrase": "__nome2__ enterrou não se sabe o quê em __nome1__. Também não se sabe onde.\nMas __nome1__ parece feliz e perdeu 3 HP."
 	},
 	{
 		"pattern": "velório",
 		"damage": 0,
-		"phrase": "__nome2__ organizou um velório às pressas para __nome1__.\n Foi com muito carinho, mas __nome1__ já estava morta.\n RIP __nome1__"
+		"phrase": "__nome2__ organizou um velório às pressas para __nome1__.\nFoi com muito carinho, mas __nome1__ já estava morta.\nRIP __nome1__"
 	},
 	{
 		"pattern": "praise",
@@ -228,12 +228,12 @@
 	{
 		"pattern": "marvelize",
 		"damage": 3,
-		"phrase": "__nome2__ lies down with __nome1__, pet her and says she's marvelous.\n __nome1__ lost 3 HP and is now a cat."
+		"phrase": "__nome2__ lies down with __nome1__, pet her and says she's marvelous.\n__nome1__ lost 3 HP and is now a cat."
 	},
 	{
 		"pattern": "chá de camomila",
 		"damage": -5,
-		"phrase": "__nome1__ tomou um chá de camomila delicioso e dormiu tranquilamente por 1000 anos. Que soneca gostosa!\n Recuperou 5 HP."
+		"phrase": "__nome1__ tomou um chá de camomila delicioso e dormiu tranquilamente por 1000 anos. Que soneca gostosa!\nRecuperou 5 HP."
 	},
 	{
 		"pattern": "café",
@@ -243,7 +243,7 @@
 	{
 		"pattern": "afago",
 		"damage": 2,
-		"phrase": "__nome1__ foi afagado por mafagafos. Ops, foi por __nome2__ mesmo.\n -2 HP."
+		"phrase": "__nome1__ foi afagado por mafagafos. Ops, foi por __nome2__ mesmo.\n-2 HP."
 	},
 	{
 		"pattern": "colinho",
@@ -253,12 +253,12 @@
 	{
 		"pattern": "montinho",
 		"damage": 5,
-		"phrase": "1, 2, 3, 4, 5... __nome1__ perdeu as contas de quantas panquecahs se amontoaram em cima dela.\n Ganhou uma pilha de panquecahs e perdeu 5 HP esmagadinhos."
+		"phrase": "1, 2, 3, 4, 5... __nome1__ perdeu as contas de quantas panquecahs se amontoaram em cima dela.\nGanhou uma pilha de panquecahs e perdeu 5 HP esmagadinhos."
 	},
 	{
 		"pattern": "biscoito",
 		"damage": 1,
-		"phrase": "__nome2__ esfregou um biscoito na cara de __nome1__, que perdeu 1 HP.\n Toma, sua biscoiteirah!"
+		"phrase": "__nome2__ esfregou um biscoito na cara de __nome1__, que perdeu 1 HP.\nToma, sua biscoiteirah!"
 	},
 	{
 		"pattern": "tampão de ouvido",
@@ -268,22 +268,22 @@
 	{
 		"pattern": "pedestal",
 		"damage": 4,
-		"phrase": "__nome2__ colocou __nome1__ em um pedestal, para ser adorada como a deusah panquecah que é.\n -4 HP para a deusah."
+		"phrase": "__nome2__ colocou __nome1__ em um pedestal, para ser adorada como a deusah panquecah que é.\n-4 HP para a deusah."
 	},
 	{
 		"pattern": "choke",
 		"damage": 3,
-		"phrase": "__nome1__ sente as mãos de __nome2__ ao redor de seu pescoço, apertando mais e mais.\n Perdeu 3 HP e esperemos que não a vida."
+		"phrase": "__nome1__ sente as mãos de __nome2__ ao redor de seu pescoço, apertando mais e mais.\nPerdeu 3 HP e esperemos que não a vida."
 	},
 	{
-		"pattern": "SLAP",
+		"pattern": "slap",
 		"damage": 0,
 		"phrase": "__nome1__ levou um tapão na cara de __nome2__. Acorda pra vida! Reage, panquecah!"
 	},
 	{
 		"pattern": "amarrada",
 		"damage": 4,
-		"phrase": "__nome1__ foi artisticamente restringida por cordas. Espero que __nome2__ saiba desamarrar.\n Perdeu 4 HP (e a sensação do braço esquerdo)."
+		"phrase": "__nome1__ foi artisticamente restringida por cordas. Espero que __nome2__ saiba desamarrar.\nPerdeu 4 HP (e a sensação do braço esquerdo)."
 	},
 	{
 		"pattern": "lap dance",
@@ -303,7 +303,7 @@
 	{
 		"pattern": "bukkake",
 		"damage": 3,
-		"phrase": "__nome1__ recebeu jatos de sorvete de baunilha convenientemente líquido na cara de vários machos deliciosos.\n Perdeu 3 HP."
+		"phrase": "__nome1__ recebeu jatos de sorvete de baunilha convenientemente líquido na cara de vários machos deliciosos.\nPerdeu 3 HP."
 	},
 	{
 		"pattern": "pisada",
@@ -313,7 +313,7 @@
 	{
 		"pattern": "garganta profunda",
 		"damage": 3,
-		"phrase": "__nome1__ entrou e está procurando o final até agora. Vigorosamente.\n Perdeu 3 HP como resultado do esforço."
+		"phrase": "__nome1__ entrou e está procurando o final até agora. Vigorosamente.\nPerdeu 3 HP como resultado do esforço."
 	},
 	{
 		"pattern": "penetrada",
@@ -323,12 +323,12 @@
 	{
 		"pattern": "metida",
 		"damage": 4,
-		"phrase": "__nome1__ recebeu uma metida de __nome2__. \n AI QUE DELÍCIA\n Perdeu 4 HP mas valeu a pena."
+		"phrase": "__nome1__ recebeu uma metida de __nome2__.\nAI QUE DELÍCIA\nPerdeu 4 HP mas valeu a pena."
 	},
 	{
 		"pattern": "amor",
 		"damage": 6,
-		"phrase": "'__nome1__, receba todo o meu amor!'\n __nome1__ foi metralhada pelo amor de __nome2__ e perdeu 6 HP."
+		"phrase": "'__nome1__, receba todo o meu amor!'\n__nome1__ foi metralhada pelo amor de __nome2__ e perdeu 6 HP."
 	},
 	{
 		"pattern": "tesourada",

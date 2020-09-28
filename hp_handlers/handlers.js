@@ -83,7 +83,6 @@ handlers.execute_hp_response = async function(msg, i){
 	try{
 		const group = await Group.findOne({group_id}).exec();
 
-				
 		const try_user = group.people.filter(function(person){
 			return person.userid === target_id;	
 		});
@@ -99,6 +98,7 @@ handlers.execute_hp_response = async function(msg, i){
 		if(new_hp <= 0){
 			died = true;
 			new_hp = MAX_HP;
+			user.deaths++;
 		}
 
 
@@ -121,6 +121,39 @@ handlers.execute_hp_response = async function(msg, i){
 	}
 }
 
+handlers.get_top_death = async function(msg){
+	const bot = this.bot;
+	const group_id = msg.chat.id;
+	try {
+		const group = await Group.findOne({group_id}).exec();
+		const people = group.people;
+
+		console.log(people);
+
+		const comp = function(a, b){
+			if(a.deaths > b.deaths){
+				return -1;
+			} else if(a.deaths < b.deaths){
+				return 1;
+			} else return 0;
+		}
+
+		people.sort(comp);
+
+		let res = "Ranking de mortes:\n\n";
+
+		for(let i = 0; i < Math.min(10, people.length); i++){
+			res += `${i+1}: ${people[i].name} - ${people[i].deaths} mortes\n`;
+		}
+
+		await bot.sendMessage(group_id, res);
+
+	} catch(e) {
+		console.log("Erro na execução do get_top_death");
+		console.log(e);
+	}
+}
+
 handlers.responding_hp = function(msg){
 
 	const phrases = hp_phrases.regular;
@@ -134,6 +167,11 @@ handlers.responding_hp = function(msg){
 		}
 		const group_id = msg.chat.id;
 		this.bot.sendMessage(group_id, response);
+		return;
+	}
+
+	if(utils.checkEquality(msg, "!topmortos")){
+		this.get_top_death(msg);	
 		return;
 	}
 

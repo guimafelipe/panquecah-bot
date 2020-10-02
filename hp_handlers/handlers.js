@@ -1,4 +1,4 @@
-const 	Group		= require('../models/group'),
+const	Group		= require('../models/group'),
 		hp_phrases	= require('./hp_words.json'),
 		utils		= require('../utils/utils'),
 		mongoose	= require('mongoose');
@@ -108,8 +108,7 @@ handlers.execute_hp_response = async function(msg, i){
 
 		await bot.sendMessage(group_id, response_text);
 
-		const finalMsg = hp_phrases.finalMsg.replace(/__nome1__/i,
-													target_name);	
+		const finalMsg = hp_phrases.finalMsg.replace(/__nome1__/i, target_name);	
 		if(died){
 			await bot.sendMessage(group_id, finalMsg);
 			bot.sendSticker(group_id, DEAD_LOVE_STICKER, {});
@@ -154,19 +153,36 @@ handlers.get_top_death = async function(msg){
 	}
 }
 
+handlers.get_all_commands = function(msg){
+	const phrases = hp_phrases.regular;
+
+	let response = "Comandos da panquecah:\n";
+	let pats = [];
+
+	for(let i = 0; i < phrases.length; i++){
+		const {pattern} = phrases[i];
+		pats.push(pattern);
+	}
+
+	// Ordem alfabética
+	pats.sort();
+	
+	pats.forEach(pattern => {
+		response += `* ${pattern}\n`;
+	});
+
+	const group_id = msg.chat.id;
+	this.bot.sendMessage(group_id, response);
+	return;
+}
+
 handlers.responding_hp = function(msg){
 
 	const phrases = hp_phrases.regular;
 	const {text} = msg;
 
 	if(utils.checkEquality(msg, "!comandos")){
-		let response = "Comandos da panquecah:\n";
-		for(let i = 0; i < phrases.length; i++){
-			const {pattern} = phrases[i];
-			response += `* ${pattern}\n`;
-		}
-		const group_id = msg.chat.id;
-		this.bot.sendMessage(group_id, response);
+		this.get_all_commands(msg);
 		return;
 	}
 

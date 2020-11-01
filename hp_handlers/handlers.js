@@ -87,11 +87,33 @@ handlers.execute_hp_response = async function(msg, i){
 			return person.userid === target_id;	
 		});
 
+		// Atualizando comandos
+		try{
+			const command = phrase.pattern;
+			const try_command = group.commands.filter(function(cmd){
+					return cmd.name === command;
+				});
+
+			if(try_command.length != 0){
+				let cmd = try_command[0];
+				cmd.usages++;
+			} else {
+				group.commands.push({
+					name: command,
+					usages: 1
+				});
+			}
+		} catch(e){
+			console.log("Erro no comando");
+			console.log(e);
+		}
+		// fim att comandos
+
 		const user = try_user[0];
 		const curr_hp = user.hp;
 		const damage = phrase.damage;
-		let new_hp = curr_hp - damage;
 
+		let new_hp = curr_hp - damage;
 
 		let died = false;
 
@@ -100,7 +122,6 @@ handlers.execute_hp_response = async function(msg, i){
 			new_hp = MAX_HP;
 			user.deaths++;
 		}
-
 
 		user.hp = new_hp;
 
@@ -153,6 +174,38 @@ handlers.get_top_death = async function(msg){
 	}
 }
 
+handlers.get_top_commands = async function(msg){
+	const bot = this.bot;
+	const group_id = msg.chat.id;
+
+	try{
+		const group = await Group.findOne({group_id}).exec();
+		const commands = group.commands;
+
+		const comp = function(a, b){
+			if(a.usages > b.usages){
+				return -1;
+			} else if(a.usages < b.usages){
+				return 1;
+			} else return 0;
+		}
+
+		commands.sort(comp);
+
+		let res = "Comandos mais usados nesse grupo:\n\n";
+
+		for(let i = 0; i < Math.min(10, commands.length); i++){
+			res += `${i+1}: ${commands[i].name} - ${commands[i].usages} usos\n`;
+		}
+
+		await bot.sendMessage(group_id, res);
+
+	} catch(e) {
+		console.log("Erro na execução do get_top_commands");
+		console.log(e);
+	}
+}
+
 handlers.get_all_commands = function(msg){
 	const phrases = hp_phrases.regular;
 
@@ -186,8 +239,13 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
-	if(utils.checkEquality(msg, "!topmortos")){
+	if(utils.checkMultipleEquality(msg, ["!topmortos","!topmortes"])){
 		this.get_top_death(msg);	
+		return;
+	}
+
+	if(utils.checkMultipleEquality(msg, ["!topcomandos"])){
+		this.get_top_commands(msg);	
 		return;
 	}
 

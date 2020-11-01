@@ -16,9 +16,18 @@ let personSchema = new mongoose.Schema({
 	reminded: { type: Boolean, default: false}
 });
 
+let commandSchema = new mongoose.Schema({
+	name: String,
+	usages: {
+		type: Number,
+		default: 0
+	}
+});
+
 let groupSchema = new mongoose.Schema({
 	group_id: Number,
-	people: [personSchema]
+	people: [personSchema],
+	commands: [commandSchema]
 });
 
 let Group = mongoose.model("Group", groupSchema);

@@ -11,7 +11,7 @@ handlers.init = function(){
 
 	const bot = this.bot;
 	let awoCount = 0;
-	const awoLimit = 3;
+	let awoLimit = 3;
 
 	if(!bot){
 		console.log("Error, no bot initialized");
@@ -61,6 +61,7 @@ handlers.init = function(){
 			if(awoCount == awoLimit){
 				msg_text = "Chega de uivar '-'";
 				awoCount = 0;
+				awoLimit = Math.floor(Math.random()*7);
 			} else {
 				msg_text = "AWOOOO!!!!!!!";
 			}

@@ -133,22 +133,15 @@ handlers.get_top_death = async function(msg){
 	const bot = this.bot;
 	const group_id = msg.chat.id;
 	try {
-		const group = await Group.findOne({group_id}).exec();
-		const people = group.people;
+		const group = await Group.findOne({group_id}, 'people');
+		let people = group.people;
 
-		const comp = function(a, b){
-			if(a.deaths > b.deaths){
-				return -1;
-			} else if(a.deaths < b.deaths){
-				return 1;
-			} else return 0;
-		}
-
-		people.sort(comp);
+		people.sort(utils.getCompFunc('deaths'));
+		people = people.slice(0, 10);
 
 		let res = "Ranking de mortes:\n\n";
 
-		for(let i = 0; i < Math.min(10, people.length); i++){
+		for(let i = 0; i < people.length; i++){
 			res += `${i+1}: ${people[i].name}`;
 			res += `- ${people[i].deaths} mortes\n`;
 		}
@@ -166,24 +159,15 @@ handlers.get_top_commands = async function(msg){
 	const group_id = msg.chat.id;
 
 	try{
-		const group = await Group.findOne({group_id});
-		const commands = group.commands;
+		const group = await Group.findOne({group_id}, 'commands');
+		let commands = group.commands;
 
-		const query = Group.findOne({group_id});
-
-		const comp = function(a, b){
-			if(a.usages > b.usages){
-				return -1;
-			} else if(a.usages < b.usages){
-				return 1;
-			} else return 0;
-		}
-
-		commands.sort(comp);
+		commands.sort(utils.getCompFunc('usages'));
+		commands = commands.slice(0, 10);
 
 		let res = "Comandos mais usados nesse grupo:\n\n";
 
-		for(let i = 0; i < Math.min(10, commands.length); i++){
+		for(let i = 0; i < commands.length; i++){
 			res += `${i+1}: ${commands[i].name} `;
 			res += `- ${commands[i].usages} usos\n`;
 		}
@@ -270,7 +254,7 @@ handlers.init = function(){
 	}
 
 
-	bot.on('message', (msg) => {
+	bot.on('message', async (msg) => {
 
 		await checkIfIncluded(msg);
 

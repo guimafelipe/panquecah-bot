@@ -31,3 +31,9 @@ utils.startsWith = function(msg, pat) {
 	return msg.text.substring(0, j).toLowerCase() === pat;
 }
 
+utils.getCompFunc = function(attribute) {
+	return function(a , b){
+		return b[attribute] - a[attribute];
+	}
+}
+

@@ -48,6 +48,7 @@ handlers.init = function(){
 			SHIMONETA_STICKER,
 			{reply_to_message_id: msg.message_id});
 			this.nsfw_counter = 0;
+			this.nsft_limit	= Math.floor(Math.random()*4) + 3;
 		}
 
 	});

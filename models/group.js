@@ -1,5 +1,4 @@
-const mongoose = require('mongoose'),
-      Person = require('./person');
+const mongoose = require('mongoose');
 
 let personSchema = new mongoose.Schema({
 	username: String,

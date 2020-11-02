@@ -16,39 +16,30 @@ handlers.set_bot = function (bot) {
 
 async function checkIfIncluded(msg){
 	const group_id = msg.chat.id;
-	
-	// TODO: Refactor code below to async/await
-	Group.findOne({group_id}, async function(err, group) {
-		if(err){
-			console.log(err);
-			return;
+
+	try{
+		let group = await Group.findOne({group_id});
+
+		if(!group){
+			group = await Group.create({group_id});
 		}
+
+		console.log(group);
 		
-		try{
-			if(!group){
-				group = await Group.create({group_id});
-			}
-			
-			console.log(group);
-			
-			const username = msg.from.username;
-			const name = msg.from.first_name;
-			const userid = msg.from.id;
-			const user = group.people.filter(function(person){
-				return person.userid === userid;	
-			});
+		const username = msg.from.username;
+		const name = msg.from.first_name;
+		const userid = msg.from.id;
 
-			// If user already exists in group, just return
-			if(user.length != 0){
-				let person = user[0];
-				person.last_message_date = Date.now();
-				person.name = name;
-				person.reminded = false;
-				group.save();
-				console.log("atualizando data");
-				return;
-			}
+		const person = group.people.find(el => el.userid === userid);
 
+		if(person){
+			person.last_message_date = Date.now();
+			person.name = name;
+			person.reminded = false;
+			await group.save();
+			console.log("atualizando data");
+			return;
+		} else {
 			group.people.push({username,
 					userid,
 					name,
@@ -59,12 +50,14 @@ async function checkIfIncluded(msg){
 					reminder_cd: Date.now() + 1000*60*60*24 //1 Dia
 				});
 
-			group.save();
-
-		} catch(e) {
-			console.log(e);
+			await group.save();
 		}
-	});
+		
+	} catch(err){
+		console.log(err);
+		return;
+	}
+
 }
 
 handlers.execute_hp_response = async function(msg, i){
@@ -80,22 +73,16 @@ handlers.execute_hp_response = async function(msg, i){
 		.replace(/__nome2__/gi, from_name);
 
 	const group_id = msg.chat.id;
-	try{
-		const group = await Group.findOne({group_id}).exec();
 
-		const try_user = group.people.filter(function(person){
-			return person.userid === target_id;	
-		});
+	try{
+		const group = await Group.findOne({group_id});
 
 		// Atualizando comandos
 		try{
 			const command = phrase.pattern;
-			const try_command = group.commands.filter(function(cmd){
-					return cmd.name === command;
-				});
+			let cmd = group.commands.find(el => el.name === command);
 
-			if(try_command.length != 0){
-				let cmd = try_command[0];
+			if(cmd){
 				cmd.usages++;
 			} else {
 				group.commands.push({
@@ -109,7 +96,8 @@ handlers.execute_hp_response = async function(msg, i){
 		}
 		// fim att comandos
 
-		const user = try_user[0];
+		// já foi incluso na chamada do check if included
+		const user = group.people.find(el => el.userid === target_id);
 		const curr_hp = user.hp;
 		const damage = phrase.damage;
 
@@ -145,25 +133,17 @@ handlers.get_top_death = async function(msg){
 	const bot = this.bot;
 	const group_id = msg.chat.id;
 	try {
-		const group = await Group.findOne({group_id}).exec();
-		const people = group.people;
+		const group = await Group.findOne({group_id}, 'people');
+		let people = group.people;
 
-		console.log(people);
-
-		const comp = function(a, b){
-			if(a.deaths > b.deaths){
-				return -1;
-			} else if(a.deaths < b.deaths){
-				return 1;
-			} else return 0;
-		}
-
-		people.sort(comp);
+		people.sort(utils.getCompFunc('deaths'));
+		people = people.slice(0, 10);
 
 		let res = "Ranking de mortes:\n\n";
 
-		for(let i = 0; i < Math.min(10, people.length); i++){
-			res += `${i+1}: ${people[i].name} - ${people[i].deaths} mortes\n`;
+		for(let i = 0; i < people.length; i++){
+			res += `${i+1}: ${people[i].name}`;
+			res += `- ${people[i].deaths} mortes\n`;
 		}
 
 		await bot.sendMessage(group_id, res);
@@ -179,23 +159,17 @@ handlers.get_top_commands = async function(msg){
 	const group_id = msg.chat.id;
 
 	try{
-		const group = await Group.findOne({group_id}).exec();
-		const commands = group.commands;
+		const group = await Group.findOne({group_id}, 'commands');
+		let commands = group.commands;
 
-		const comp = function(a, b){
-			if(a.usages > b.usages){
-				return -1;
-			} else if(a.usages < b.usages){
-				return 1;
-			} else return 0;
-		}
-
-		commands.sort(comp);
+		commands.sort(utils.getCompFunc('usages'));
+		commands = commands.slice(0, 10);
 
 		let res = "Comandos mais usados nesse grupo:\n\n";
 
-		for(let i = 0; i < Math.min(10, commands.length); i++){
-			res += `${i+1}: ${commands[i].name} - ${commands[i].usages} usos\n`;
+		for(let i = 0; i < commands.length; i++){
+			res += `${i+1}: ${commands[i].name} `;
+			res += `- ${commands[i].usages} usos\n`;
 		}
 
 		await bot.sendMessage(group_id, res);
@@ -207,26 +181,26 @@ handlers.get_top_commands = async function(msg){
 }
 
 handlers.get_all_commands = function(msg){
-	const phrases = hp_phrases.regular;
+	try{
+		const phrases = hp_phrases.regular;
 
-	let response = "Comandos da panquecah:\n";
-	let pats = [];
+		let response = "Comandos da panquecah:\n";
 
-	for(let i = 0; i < phrases.length; i++){
-		const {pattern} = phrases[i];
-		pats.push(pattern);
+		let pats = phrases.map(({pattern}) => pattern);
+
+		// Ordem alfabética
+		pats.sort();
+		
+		pats.forEach(pattern => {
+			response += `* ${pattern}\n`;
+		});
+
+		const group_id = msg.chat.id;
+		this.bot.sendMessage(group_id, response);
+	} catch(e) {
+		console.log("Erro na execução do get_all_commands");
+		console.log(e);
 	}
-
-	// Ordem alfabética
-	pats.sort();
-	
-	pats.forEach(pattern => {
-		response += `* ${pattern}\n`;
-	});
-
-	const group_id = msg.chat.id;
-	this.bot.sendMessage(group_id, response);
-	return;
 }
 
 handlers.responding_hp = function(msg){
@@ -234,16 +208,19 @@ handlers.responding_hp = function(msg){
 	const phrases = hp_phrases.regular;
 	const {text} = msg;
 
+	// listar os comandos do bot
 	if(utils.checkEquality(msg, "!comandos")){
 		this.get_all_commands(msg);
 		return;
 	}
 
+	// listar os top mortos
 	if(utils.checkMultipleEquality(msg, ["!topmortos","!topmortes"])){
 		this.get_top_death(msg);	
 		return;
 	}
 
+	// listar os top comandos
 	if(utils.checkMultipleEquality(msg, ["!topcomandos"])){
 		this.get_top_commands(msg);	
 		return;
@@ -254,19 +231,17 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
+	// Não responder bot
 	if(msg.reply_to_message.from.is_bot){
 		return;
 	}
 
-	// TODO: refactor code below to use .findOne() 
-	for(let i = 0; i < phrases.length; i++){
-		const {pattern} = phrases[i];
-		if(utils.checkEquality(msg, pattern)){
-			this.execute_hp_response(msg, i);
-			return;
-		}
-	}
-	
+	const ind = phrases.findIndex(({pattern}) => 
+		utils.checkEquality(msg, pattern));
+
+	if(ind != -1) this.execute_hp_response(msg, ind);
+
+	return;
 }
 
 handlers.init = function(){
@@ -279,9 +254,9 @@ handlers.init = function(){
 	}
 
 
-	bot.on('message', (msg) => {
+	bot.on('message', async (msg) => {
 
-		checkIfIncluded(msg);
+		await checkIfIncluded(msg);
 
 		if(!msg.hasOwnProperty('text')){
 			return;

@@ -26,7 +26,7 @@ reminder.send_reminder = async function(group_id, person){
 }
 
 reminder.remind_people = async function() {
-	const groups = await Group.find({}).exec();
+	const groups = await Group.find({});
 
 	console.log("Chamando remind people");
 	console.log(groups);
@@ -56,7 +56,7 @@ reminder.remind_people = async function() {
 
 		});
 
-		group.save();
+		await group.save();
 	});
 }
 

@@ -36,7 +36,7 @@ async function checkIfIncluded(msg){
 			person.last_message_date = Date.now();
 			person.name = name;
 			person.reminded = false;
-			group.save();
+			await group.save();
 			console.log("atualizando data");
 			return;
 		} else {
@@ -50,7 +50,7 @@ async function checkIfIncluded(msg){
 					reminder_cd: Date.now() + 1000*60*60*24 //1 Dia
 				});
 
-			group.save();
+			await group.save();
 		}
 		
 	} catch(err){
@@ -272,7 +272,7 @@ handlers.init = function(){
 
 	bot.on('message', (msg) => {
 
-		checkIfIncluded(msg);
+		await checkIfIncluded(msg);
 
 		if(!msg.hasOwnProperty('text')){
 			return;

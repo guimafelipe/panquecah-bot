@@ -44,9 +44,8 @@ handlers.init = function(){
 		if(utils.checkMultiple(msg, nsfw_arr)){
 			this.nsfw_counter++;
 			if(this.nsft_limit > this.nsfw_counter) return;
-			bot.sendSticker(msg.chat.id,
-			SHIMONETA_STICKER,
-			{reply_to_message_id: msg.message_id});
+			bot.sendSticker(msg.chat.id, SHIMONETA_STICKER,
+				{reply_to_message_id: msg.message_id});
 			this.nsfw_counter = 0;
 		}
 

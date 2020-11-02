@@ -15,7 +15,7 @@ commands.getHp = async function(msg) {
 	const userid = msg.from.id;
 
 	try{
-		const group = await Group.findOne({group_id}).exec();
+		const group = await Group.findOne({group_id});
 		const person = group.people.find((el) => {
 			return el.userid === userid;
 		});

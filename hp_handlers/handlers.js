@@ -24,8 +24,6 @@ async function checkIfIncluded(msg){
 			group = await Group.create({group_id});
 		}
 
-		console.log(group);
-		
 		const username = msg.from.username;
 		const name = msg.from.first_name;
 		const userid = msg.from.id;
@@ -37,8 +35,6 @@ async function checkIfIncluded(msg){
 			person.name = name;
 			person.reminded = false;
 			await group.save();
-			console.log("atualizando data");
-			return;
 		} else {
 			group.people.push({username,
 					userid,
@@ -52,10 +48,13 @@ async function checkIfIncluded(msg){
 
 			await group.save();
 		}
-		
+
+		// console.log no grupo já atualizado com a pessoa
+		// tirar depois
+		console.log(group);
 	} catch(err){
+		console.log("Erro no checkIfIncluded");
 		console.log(err);
-		return;
 	}
 
 }

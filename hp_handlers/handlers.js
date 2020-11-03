@@ -141,10 +141,10 @@ handlers.get_top_death = async function(msg){
 
 		let res = "Ranking de mortes:\n\n";
 
-		for(let i = 0; i < people.length; i++){
-			res += `${i+1}: ${people[i].name}`;
-			res += `- ${people[i].deaths} mortes\n`;
-		}
+		people.forEach((person, i) => {
+			res += `${i+1}: ${person.name}`;
+			res += `- ${person.deaths} mortes\n`;
+		});
 
 		await bot.sendMessage(group_id, res);
 
@@ -167,10 +167,10 @@ handlers.get_top_commands = async function(msg){
 
 		let res = "Comandos mais usados nesse grupo:\n\n";
 
-		for(let i = 0; i < commands.length; i++){
-			res += `${i+1}: ${commands[i].name} `;
-			res += `- ${commands[i].usages} usos\n`;
-		}
+		commands.forEach((command, i) => {
+			res += `${i+1}: ${command.name} `;
+			res += `- ${command.usages} usos\n`;
+		});
 
 		await bot.sendMessage(group_id, res);
 

@@ -1,4 +1,3 @@
-// O que diabos essa classe faz mesmo?
 const handlers = module.exports = {};
 
 handlers.set_bot = function (bot) {
@@ -6,12 +5,8 @@ handlers.set_bot = function (bot) {
 	this.init();
 };
 
-
 handlers.init = function(){
-
 	const bot = this.bot;
-	let awoCount = 0;
-	const awoLimit = 3;
 
 	if(!bot){
 		console.log("Error, no bot initialized");

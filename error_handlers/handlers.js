@@ -1,3 +1,4 @@
+// O que diabos essa classe faz mesmo?
 const handlers = module.exports = {};
 
 handlers.set_bot = function (bot) {

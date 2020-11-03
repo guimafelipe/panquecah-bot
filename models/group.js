@@ -4,7 +4,10 @@ let personSchema = new mongoose.Schema({
 	username: String,
 	name: String,
 	userid: Number,
-	hp: Number,
+	hp: {
+		type: Number,
+		default: 10
+	},
 	deaths: {
 		type: Number,
 		default: 0

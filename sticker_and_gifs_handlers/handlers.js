@@ -1,7 +1,14 @@
 const utils = require('../utils/utils');
 
 const 	TURURU_STICKER = 'CAACAgEAAx0CVxgUxQAD0F5xi8Do-HSvuifLtZvEh1YWb8ODAAIIAAMyNGYr8ugkbSOLEBcYBA',
-		SHIMONETA_STICKER = 'CAACAgIAAx0CVxgUxQAD015xjdSCgyJKWTldD50HP5qfkMEYAAJ7AQACEBptIhGjSCn6lIQGGAQ';
+		SHIMONETA_STICKER = 'CAACAgIAAx0CVxgUxQAD015xjdSCgyJKWTldD50HP5qfkMEYAAJ7AQACEBptIhGjSCn6lIQGGAQ',
+		BONK_GIFS = [
+		'CgACAgQAAx0CVxgUxQACA8Nfpdq68AktozFwv1KKM3I_UYehXQACUwIAAqt4jFOwUnPWIm6Wlx4E'
+		],
+		BONK_IMGS = [
+		'AgACAgEAAx0CVxgUxQACA8pfpd2f0Z_8cGo2wRQufXYmQqomjwACf6kxG2pnMUX3bL7f28nOaIAIc0oXAAMBAAMCAANtAAOlUQACHgQ'
+		];
+
 
 const handlers = module.exports = {};
 
@@ -27,6 +34,22 @@ handlers.init = function(){
 			console.log("STICKER");
 			console.log(msg);
 			return;
+		}
+
+		const bonk = "bonk";
+		if(utils.checkIfContains(msg, bonk)){
+			const n = BONK_GIFS.length, m = BONK_IMGS.length;
+			let i = Math.floor(Math.random() * (n+m));
+			if(i < n){
+				bot.sendDocument(msg.chat.id,
+					BONK_GIFS[i],
+					{reply_to_message_id: msg.message_id});
+			} else {
+				i-=n;
+				bot.sendPhoto(msg.chat.id,
+					BONK_IMGS[i],
+					{reply_to_message_id: msg.message_id});
+			}
 		}
 
 		const tururu = "tururu";

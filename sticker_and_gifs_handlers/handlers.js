@@ -40,15 +40,19 @@ handlers.init = function(){
 		if(utils.checkIfContains(msg, bonk)){
 			const n = BONK_GIFS.length, m = BONK_IMGS.length;
 			let i = Math.floor(Math.random() * (n+m));
+			let target_msg_id = msg.message_id;
+			if(msg.reply_to_message){
+				target_msg_id = msg.reply_to_message.message_id;
+			}
 			if(i < n){
 				bot.sendDocument(msg.chat.id,
 					BONK_GIFS[i],
-					{reply_to_message_id: msg.message_id});
+					{reply_to_message_id: target_msg_id});
 			} else {
 				i-=n;
 				bot.sendPhoto(msg.chat.id,
 					BONK_IMGS[i],
-					{reply_to_message_id: msg.message_id});
+					{reply_to_message_id: target_msg_id});
 			}
 		}
 

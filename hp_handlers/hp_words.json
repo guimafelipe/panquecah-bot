@@ -193,7 +193,7 @@
 	{
 		"pattern": "bento",
 		"damage": 2,
-		"phrase": "__nome1__ ganhou um bento cheio recheado de amor (e comida). Perdeu 2 HP enquanto enchia o buxin."
+		"phrase": "__nome1__ ganhou um bento recheado de amor (e comida). \n__nome1__ perdeu 2 HP e está de buxin cheio, pelo menos em nossos corações."
 	},
 	{
 		"pattern": "peteleco",
@@ -247,8 +247,8 @@
 	},
 	{
 		"pattern": "colinho",
-		"damage": 5,
-		"phrase": "__nome1__ repousa eternamente no berço esplêndido do colinho de __nome2__. O aluguel do colo custou apenas 5 HP"
+		"damage": 3,
+		"phrase": "__nome1__ está fofinha e confortável no colinho de __nome2__.  Se sente muito amada e protegida. Onhonhonhonhóin x3 \n -3 HP"
 	},
 	{
 		"pattern": "montinho",
@@ -287,8 +287,8 @@
 	},
 	{
 		"pattern": "lap dance",
-		"damage": 4,
-		"phrase": "__nome1__ foi hipnotizada por uma dança sensual de __nome2__, que finalizou lhe tirando 4 HP."
+		"damage": 2,
+		"phrase": "__nome1__ foi hipnotizada por uma dança sensual de __nome2__, que finalizou lhe tirando 2 HP."
 	},
 	{
 		"pattern": "beijo grego",
@@ -303,7 +303,7 @@
 	{
 		"pattern": "bukkake",
 		"damage": 3,
-		"phrase": "__nome1__ recebeu jatos de sorvete de baunilha convenientemente líquido na cara de vários machos deliciosos.\nPerdeu 3 HP."
+		"phrase": "__nome1__ recebeu na cara jatos de sorvete de baunilha convenientemente líquido de vários machos deliciosos.\nPerdeu 3 HP."
 	},
 	{
 		"pattern": "pisada",
@@ -334,7 +334,103 @@
 		"pattern": "tesourada",
 		"damage": 4,
 		"phrase": "__nome1__ e __nome2__ estão em meio a uma tesourada deliciosa. __nome1__ não se aguentou e perdeu 4 HP."
+	},
+	{
+		"pattern": "ganbatte",
+		"damage": 1,
+		"phrase": "'Ganbatte, __nome1__. Você consegue!'\n__nome1__ é uma paquecah incrível e perdeu 1 HP em troca da motivação."
+	},
+	{
+		"pattern": "motivada",
+		"damage": 2,
+		"phrase": "__nome2__ mandou energias de motivação para __nome1__, que agora está mais motivada para cumprir seus objetivos\nArrasa, __nome1__!\n. __nome1__ se enche de energia e perde 2 HP."
+	},
+	{
+		"pattern": "cacetinho",
+		"damage": 2,
+		"phrase": "__nome1__ recebe um cacetinho de __nome2__.\n__nome1__ goza após o cacete gigante e perde 2 de HP."
+	},
+	{
+		"pattern": "comida",
+		"damage": 4,
+		"phrase": "__nome2__ comeu uma Panquecah gostosah chamada __nome1__. \n__nome1__ foi muito bem comida e perdeu 4 HP."
+	},
+	{
+		"pattern": "padoru",
+		"damage": 3,
+		"phrase": "'Hashire sori yo \nKaze no you ni \nTsukimihara wo \nPADORU PADORU' \n__nome2__ está de PADORU. __nome1__ foi contagiada e agora está de PADORU também. -3 HP."
+	},
+	{
+		"pattern": "tetada",
+		"damage": 4,
+		"phrase": "__nome2__ acerta suas tetas violentamente na cara de __nome1__. \n-4 HP pelo golpe crítico."
+	},
+	{
+		"pattern": "jatada",
+		"damage": 3,
+		"phrase": "__nome2__ deu uma jatada de leite na cara de __nome1__. \n-3 HP pela potência do jato."
+	},
+	{
+		"pattern": "gozada",
+		"damage": 3,
+		"phrase": "__nome2__ não se aguentou e gozou gostoso em __nome1__. \n__nome1__ está sujinha de gozo e perdeu 3 HP."
+	},
+	{
+		"pattern": "linguada",
+		"damage": 3,
+		"phrase": "__nome2__ deu aquela linguada de ouro no grelinho de diamante de __nome1__. \n-3 HP pelo golpe preciso."
+	},
+	{
+		"pattern": "esfrega a cara",
+		"damage": 3,
+		"phrase": "'ONHONHONHONHÓIN x3' \n__nome2__ esfrega a cara carinhosamente em __nome1__, que perde 3 HP."
+	},
+	{
+		"pattern": "linguada",
+		"damage": 3,
+		"phrase": "__nome2__ deu aquela linguada de ouro no grelinho de diamante de __nome1__. \n-3 HP pelo golpe preciso."
+	},
+	{
+		"pattern": "ejaculada",
+		"damage": 3,
+		"phrase": "__nome1__ levou uma ejaculada de __nome2__. \nSe foi dentro ou fora, só elas duas podem dizer. \n__nome1__ está grudentinha e perdeu 3 HP."
+	},
+	{
+		"pattern": "rebolada",
+		"damage": 3,
+		"phrase": "__nome1__ foi ao céu e não voltou com a rebolada fenomenal de __nome2__. \nNem voltou a si e perdeu 3 HP."
+	},
+	{
+		"pattern": "packpfv",
+		"damage": 2,
+		"phrase": "__nome2__ pediu um pack do pezinho de __nome1__, que perdeu 2 HP por sentir seus pés violados."
+	},
+	{
+		"pattern": "pet play",
+		"damage": 4,
+		"phrase": "__nome2__ colocou uma coleira em __nome1__. \nAgora __nome1__ só anda de quatro, come do potinho e faz barulho de bichinho. \n__nome1__ está muito realizada e perdeu 4 HP."
+	},
+	{
+		"pattern": "má",
+		"damage": 1,
+		"phrase": "'__nome1__ MÁ!' \n__nome1__ foi repreendida por não estar sendo uma boa menina. \n-1 HP como punição pra se comportar."
+	},
+	{
+		"pattern": "inserida",
+		"damage": 3,
+		"phrase": "__nome2__ inseriu algo bem grande em __nome1__, que mal consegue andar e perdeu 3 HP."
+	},
+	{
+		"pattern": "botada",
+		"damage": 3,
+		"phrase": "__nome2__ botou gostoso em __nome1__, que perdeu 3 HP."
+	},
+	{
+		"pattern": "69",
+		"damage": 4,
+		"phrase": "Nada como dar e receber prazer. \n__nome1__ não se aguentou com as carícias orais de __nome2__, que também já estava chegando perto, e perdeu 4 HP."
 	}
 	],
 	"finalMsg": "__nome1__ perdeu todo o seu HP e morreu de amor!"
 }
+

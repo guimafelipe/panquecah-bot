@@ -28,21 +28,23 @@ reminder.send_reminder = async function(group_id, person){
 reminder.remind_people = async function() {
 	const groups = await Group.find({});
 
-	console.log("Chamando remind people");
-	console.log(groups);
+	//console.log("Chamando remind people");
+	//console.log(groups);
 
 	groups.forEach(async function(group) {
 		const people = group.people;
-		console.log("iterando grupo");
-		console.log(people);
+		//console.log("iterando grupo");
+		//console.log(people);
 
 		people.forEach(async function(person) {
 			const {last_message_date,
 					hello_phrase, reminder_cd, reminded} = person;
 
+			/*
 			console.log("LMD: " + last_message_date);
 			console.log("DN:  " + Date.now());
 			console.log("REMINDED: " + reminded);
+			*/
 
 			if(reminded) return;
 

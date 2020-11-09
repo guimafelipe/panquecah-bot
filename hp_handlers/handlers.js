@@ -51,7 +51,7 @@ async function checkIfIncluded(msg){
 
 		// console.log no grupo já atualizado com a pessoa
 		// tirar depois
-		console.log(group);
+		//console.log(group);
 	} catch(err){
 		console.log("Erro no checkIfIncluded");
 		console.log(err);

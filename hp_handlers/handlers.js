@@ -59,6 +59,22 @@ async function checkIfIncluded(msg){
 
 }
 
+handlers.send_sticker = async function(group_id, phrase){
+	if(!phrase.stickers) return;
+
+	// 20% de chance de dar sticker
+	let p = Math.random();
+	if(p > 0.2) return;
+
+	const bot = this.bot;
+
+	// pegar um sticker aleatório
+	const n = phrase.stickers.length;
+	const i = Math.floor(Math.random()*n);
+
+	await bot.sendSticker(group_id, phrase.stickers[i], {});
+}
+
 handlers.execute_hp_response = async function(msg, i){
 	const bot = this.bot;
 	const phrase = hp_phrases.regular[i];
@@ -115,6 +131,8 @@ handlers.execute_hp_response = async function(msg, i){
 		await group.save();
 
 		await bot.sendMessage(group_id, response_text);
+
+		await this.send_sticker(group_id, phrase);
 
 		const finalMsg = hp_phrases.finalMsg.replace(/__nome1__/i, target_name);	
 		if(died){

@@ -53,6 +53,10 @@
 	{
 		"pattern": "mamada",
 		"damage": 5,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBFhfqdIG1XDfVHuopa5G44_dEQjNRQACEhQAApl_iAKr5PcuS87asR4E",
+			"CAACAgEAAx0CVxgUxQACBFlfqdI__u-Bw8L_hRFWd951mjYUdgACJA8AApl_iAKjUa-Vn_CEmh4E"
+		],
 		"phrase": "__nome1__ levou uma mamada surpresa.\n5 de HP também foram mamados."
 	},
 	{
@@ -83,6 +87,10 @@
 	{
 		"pattern": "spank",
 		"damage": 6,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBFVfqdF2-HaPoMlKQ2-_Pv7x5fgPYgACVBEAApl_iALYR41oxnaZyx4E",
+			"CAACAgEAAx0CVxgUxQACBFdfqdHL8lqOaaz6dZ3zLQNk_XaDHAACdhUAApl_iAIugedUhtmHYh4E"
+		],
 		"phrase": "__nome2__ colocou __nome1__ em posição e lhe deu palmadas muito bem dadas.\nConte-as junto com o HP perdido:\nUm\nDois\nTrês\nQuatro\nCinco\nSeis\n__nome1__ está vermelhinha."
 	},
 	{
@@ -93,6 +101,9 @@
 	{
 		"pattern": "rabada",
 		"damage": 4,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBFZfqdGhaodODJJRv5mUpUoezTw-XwACtREAApl_iAKX4mCB2z-0ux4E"
+		],
 		"phrase": "__nome1__ tomou rabadas de __nome2__, que tem uma raba de qualidade e lhe tirou 4 HP."
 	},
 	{
@@ -128,6 +139,9 @@
 	{
 		"pattern": "lambidinha",
 		"damage": 3,
+		"stickers": [
+			"CAACAgEAAx0CVxgUxQACBExfqc6eateoL52hpE_awepWjdLbZgACHwADU1QOHmmIYIc25GYBHgQ"
+		],
 		"phrase": "__nome1__ recebeu uma lambidinha no lugar certo.\nNão se aguentou e perdeu 3 de HP."
 	},
 	{
@@ -143,6 +157,9 @@
 	{
 		"pattern": "moide",
 		"damage": 0,
+		"stickers": [
+			"CAACAgIAAx0CVxgUxQACBFJfqdCw8Mu38-a66cdvWt8kNSiwIQACiQADtun_Hf9RrVlLovehHgQ"
+		],
 		"phrase": "__nome1__ foi moidido OwO. \nMas nada aconteceu."
 	},
 	{
@@ -207,7 +224,10 @@
 	},
 	{
 		"pattern": "de quatro",
-		"damage": 0,
+		"damage": 4,
+		"stickers": [
+			"CAACAgEAAx0CVxgUxQACBFRfqdE0lcjDIivcHyJyPHDad-XNBgACchMAApl_iAKQAAEyheYOAAHeHgQ"
+		],
 		"phrase": "__nome2__ ficou de quatro para __nome1__. Bate e maltrata essa puta safadah.\n__nome1__ perdeu 4 HP."
 	},
 	{
@@ -258,6 +278,10 @@
 	{
 		"pattern": "biscoito",
 		"damage": 1,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBFBfqc9pI4n1kqnoGwlQoHDK8qnNrAACMAEAAjbsGwU_27lSGgyW8x4E",
+			"CAACAgIAAx0CVxgUxQACBE9fqc9gsoKbJxb5foaO7JR2_-KfNgAC1xEAAujW4hKOHStXURFdzR4E"
+		],
 		"phrase": "__nome2__ esfregou um biscoito na cara de __nome1__, que perdeu 1 HP.\nToma, sua biscoiteirah!"
 	},
 	{
@@ -273,6 +297,9 @@
 	{
 		"pattern": "choke",
 		"damage": 3,
+		"stickers": [
+			"CAACAgEAAx0CVxgUxQACBFNfqdEAAepsy1ksiPBPAAHl17zth166AAJUCwACmX-IAjvhzpSuaN2tHgQ"
+		],
 		"phrase": "__nome1__ sente as mãos de __nome2__ ao redor de seu pescoço, apertando mais e mais.\nPerdeu 3 HP e esperemos que não a vida."
 	},
 	{
@@ -318,11 +345,18 @@
 	{
 		"pattern": "penetrada",
 		"damage": 3,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBLBfqdYh8n3x3nC8GKhdqccWqRTs8wACyQUAApl_iAKvsDehNqTrpx4E"
+		],
 		"phrase": "__nome1__ gemeu sendo penetrada por __nome2__. Aaaaaiiiin e menos 3 HP."
 	},
 	{
 		"pattern": "metida",
 		"damage": 4,
+		"stickers": [
+			"CAACAgEAAx0CVxgUxQACBKxfqdV7AmDMKUGR5hkRFY3JCtSHJQACYxEAApl_iALfQm22WNn_9h4E",
+			"CAACAgEAAx0CVxgUxQACBK1fqdWf6YZpkYs6JHUPSTGjZAY8JwACpw8AApl_iALYbndmL81Lch4E"
+		],
 		"phrase": "__nome1__ recebeu uma metida de __nome2__.\nAI QUE DELÍCIA\nPerdeu 4 HP mas valeu a pena."
 	},
 	{
@@ -373,6 +407,10 @@
 	{
 		"pattern": "gozada",
 		"damage": 3,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBK5fqdW_SBhiAAEgz3FOED_CdfywMnYAAloMAAKZf4gCnNkslPZo5WceBA",
+			"CAACAgEAAx0CVxgUxQACBLBfqdYh8n3x3nC8GKhdqccWqRTs8wACyQUAApl_iAKvsDehNqTrpx4E"
+		],
 		"phrase": "__nome2__ não se aguentou e gozou gostoso em __nome1__. \n__nome1__ está sujinha de gozo e perdeu 3 HP."
 	},
 	{
@@ -384,11 +422,6 @@
 		"pattern": "esfrega a cara",
 		"damage": 3,
 		"phrase": "'ONHONHONHONHÓIN x3' \n__nome2__ esfrega a cara carinhosamente em __nome1__, que perde 3 HP."
-	},
-	{
-		"pattern": "linguada",
-		"damage": 3,
-		"phrase": "__nome2__ deu aquela linguada de ouro no grelinho de diamante de __nome1__. \n-3 HP pelo golpe preciso."
 	},
 	{
 		"pattern": "ejaculada",

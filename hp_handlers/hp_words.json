@@ -441,6 +441,12 @@
 	{
 		"pattern": "pet play",
 		"damage": 4,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBQRfqd4QT91taotuIlwPbXzE8W2SowACWAADf_QzHF4n9-wdd_XEHgQ",
+			"CAACAgIAAx0CVxgUxQACBQVfqd4Zc-CkUMS3s2RMGl5u4-cg-QACKQADf_QzHH9cLe531WIZHgQ",
+			"CAACAgIAAx0CVxgUxQACBQZfqd4ht_oCgc3U2tEgoA99rcBURwACMAADf_QzHMjkQnCZzYrGHgQ",
+			"CAACAgIAAx0CVxgUxQACBQdfqd4u0ftZfeDAq1mNM5zHYMviegACRAADf_QzHEstd4oEi45FHgQ"
+		],
 		"phrase": "__nome2__ colocou uma coleira em __nome1__. \nAgora __nome1__ só anda de quatro, come do potinho e faz barulho de bichinho. \n__nome1__ está muito realizada e perdeu 4 HP."
 	},
 	{

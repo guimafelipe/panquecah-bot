@@ -197,6 +197,30 @@ handlers.get_top_commands = async function(msg){
 	}
 }
 
+handlers.get_with_stickers = async function(msg){
+	try{
+		const phrases = hp_phrases.regular;
+
+		let response = "Comandos da panquecah com stickers:\n";
+
+		let pats = phrases.filter(el => el.stickers != undefined)
+							.map(({pattern}) => pattern);
+
+		// Ordem alfabética
+		pats.sort();
+		
+		pats.forEach(pattern => {
+			response += `* ${pattern}\n`;
+		});
+
+		const group_id = msg.chat.id;
+		this.bot.sendMessage(group_id, response);
+	} catch(e) {
+		console.log("Erro na execução do get_with_stickers");
+		console.log(e);
+	}
+}
+
 handlers.get_all_commands = function(msg){
 	try{
 		const phrases = hp_phrases.regular;
@@ -228,6 +252,12 @@ handlers.responding_hp = function(msg){
 	// listar os comandos do bot
 	if(utils.checkEquality(msg, "!comandos")){
 		this.get_all_commands(msg);
+		return;
+	}
+
+	// listar os comandos com stickers
+	if(utils.checkMultipleEquality(msg, ["!sticker","!stickers"])){
+		this.get_with_stickers(msg);
 		return;
 	}
 

@@ -114,6 +114,9 @@
 	{
 		"pattern": "chicotada",
 		"damage": 5,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBV5fqfDfzVD4JcjEIAN775PQQl4IQQACnhEAApl_iAJldcJejtCxlR4E"
+		],
 		"phrase": "De quatro, saia pra cima e calcinha pra baixo, __nome1__ contou 5 chicotadas e ficou marcadinha. \nMenos 5 de HP."
 	},
 	{
@@ -220,6 +223,9 @@
 	{
 		"pattern": "aconchego",
 		"damage": 4,
+		"stickers":[
+			"CAACAgQAAx0CVxgUxQACBWdfqfISt_aC2jMfw3cjwQ8qt7SCxgAC7gsAAhgwqgUYo3coFLgKEB4E"
+		],
 		"phrase": "__nome1__ se aconchegou esplendorosamente em __nome2__. Não há lugar melhor no mundo.\nPerdeu 4 HP pelo conforto."
 	},
 	{
@@ -268,6 +274,9 @@
 	{
 		"pattern": "colinho",
 		"damage": 3,
+		"stickers":[
+			"CAACAgQAAx0CVxgUxQACBW9fqfItsDQV9n1HXYmM8YNHM0zDDQACXgsAAhgwqgX0zL0-iy0TzB4E"
+		],
 		"phrase": "__nome1__ está fofinha e confortável no colinho de __nome2__.  Se sente muito amada e protegida. Onhonhonhonhóin x3 \n -3 HP"
 	},
 	{
@@ -310,6 +319,9 @@
 	{
 		"pattern": "amarrada",
 		"damage": 4,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACBWBfqfDfe5aSPMNk9tw644jYDmTx7QACKw4AApl_iAJc0tLtNLVdhB4E"
+		],
 		"phrase": "__nome1__ foi artisticamente restringida por cordas. Espero que __nome2__ saiba desamarrar.\nPerdeu 4 HP (e a sensação do braço esquerdo)."
 	},
 	{

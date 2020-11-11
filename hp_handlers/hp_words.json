@@ -41,6 +41,10 @@
 	{
 		"pattern": "headpat",
 		"damage": 3,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBe5fq_Na50GQJwewAdUD35KO_vAlvQACOgADtun_HRXne1aD6i3-HgQ",
+			"CAACAgQAAx0CVxgUxQACBe9fq_Nx1ZtDHJNUb0GUPX1woJYipQACqAADS2nuEHGlMQoVwUakHgQ"
+		],
 		"phrase": "Oishi, oishi. Headpat pra você (e -3 de HP) :3"
 	},
 	{
@@ -164,13 +168,17 @@
 		"pattern": "moide",
 		"damage": 0,
 		"stickers": [
-			"CAACAgIAAx0CVxgUxQACBFJfqdCw8Mu38-a66cdvWt8kNSiwIQACiQADtun_Hf9RrVlLovehHgQ"
+			"CAACAgIAAx0CVxgUxQACBFJfqdCw8Mu38-a66cdvWt8kNSiwIQACiQADtun_Hf9RrVlLovehHgQ",
+			"CAACAgIAAx0CVxgUxQACBfBfq_PYHQvcMIxFoqKK7YpnX6-1oQACUQADtun_HTgh6EOuXIpDHgQ"
 		],
 		"phrase": "__nome1__ foi moidido OwO. \nMas nada aconteceu."
 	},
 	{
 		"pattern": "apalpada",
 		"damage": 3,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBfdfq_R6Iy7Uh86ixjyByvyNS8VQUQACnwADf_QzHMroox3yQ8dvHgQ"
+		],
 		"phrase": "__nome1__ sentiu um par de mãos bem gostoso.\nTambém se sentiu perdendo 3 de HP, o que foi menos gostosinho mas valeu a pena. "
 	},
 	{
@@ -252,6 +260,9 @@
 	{
 		"pattern": "praise",
 		"damage": 1,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBe1fq_NMbcgG-gK3yB4RhdBf_9tFRgACRwADtun_Hecrt9Q6KwxfHgQ"
+		],
 		"phrase": "__nome1__ has been praised. She now knows she's a good girl (and lost 1 HP)."
 	},
 	{
@@ -345,6 +356,9 @@
 	{
 		"pattern": "bukkake",
 		"damage": 3,
+		"stickers":[
+			"CAACAgIAAx0CVxgUxQACBfNfq_QxoNnSVh6fjmuqOAXT2LKzKgACmwADf_QzHN-J0LoDwD_cHgQ"
+		],
 		"phrase": "__nome1__ recebeu na cara jatos de sorvete de baunilha convenientemente líquido de vários machos deliciosos.\nPerdeu 3 HP."
 	},
 	{

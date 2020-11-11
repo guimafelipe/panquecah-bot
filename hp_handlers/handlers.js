@@ -62,9 +62,9 @@ async function checkIfIncluded(msg){
 handlers.send_sticker = async function(group_id, phrase){
 	if(!phrase.stickers) return;
 
-	// 20% de chance de dar sticker
+	// 25% de chance de dar sticker
 	let p = Math.random();
-	if(p > 0.2) return;
+	if(p > 0.25) return;
 
 	const bot = this.bot;
 

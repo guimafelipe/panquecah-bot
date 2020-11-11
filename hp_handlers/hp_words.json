@@ -23,6 +23,9 @@
 	{
 		"pattern": "abração",
 		"damage": 5,
+		"stickers": [
+			"CAACAgUAAx0CVxgUxQACBbhfq-5_4Gv4LNkE4_fyWEJnvrH4kgACUR4AAsZRxhUJjXBk8iMOyx4E"
+		],
 		"phrase": "\" AAAAAAAA, toma um abraço,__nome1__!\" \n__nome1__ ganhou um abraço empolgado e perdeu 5 de HP."
 	},
 	{
@@ -433,6 +436,9 @@
 	{
 		"pattern": "esfrega a cara",
 		"damage": 3,
+		"stickers":[
+			"CAACAgUAAx0CVxgUxQACBbdfq-5uhrj6Ge00CGBS9cWQZ0stDwAClx4AAsZRxhW0dy06ZOSf5B4E"
+		],
 		"phrase": "'ONHONHONHONHÓIN x3' \n__nome2__ esfrega a cara carinhosamente em __nome1__, que perde 3 HP."
 	},
 	{

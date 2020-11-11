@@ -13,6 +13,9 @@
 	{
 		"pattern": "beijão",
 		"damage": 5,
+		"stickers":[
+			"CAACAgQAAx0CVxgUxQACBh9fq_xbBcRR72STwHelOqsqRHxr8gACYAAD9VhJGb2RtHFf1GaiHgQ"
+		],
 		"phrase": "As línguas de __nome1__ e __nome2__ travaram uma batalha. \n__nome1__ deve ter perdido porque, sem fôlego, perdeu 5 de HP."
 	},
 	{
@@ -401,6 +404,14 @@
 	{
 		"pattern": "ganbatte",
 		"damage": 1,
+		"stickers":[
+			"CAACAgQAAx0CVxgUxQACBhlfq_njCWQculvnOm_IiHFZOzU2dQACmgMAAhgwqgVX0vpSXPSD6B4E",
+			"CAACAgIAAx0CVxgUxQACBhpfq_njgcUl_df0FrpXDqR_G_KSpgACZAADv7DVES0TySC8Gm5tHgQ",
+			"CAACAgIAAx0CVxgUxQACBhtfq_njsBJw2ZsnDw6b7oYsQOaLtAACfg8AAuX3UgPFsyQEp5ZwtB4E",
+			"CAACAgEAAx0CVxgUxQACBhxfq_njm-GAOFr21eVXyeL0wYM-OgAC5gEAAgdG1yOAxLXqhdxqeR4E",
+			"CAACAgQAAx0CVxgUxQACBh1fq_njhPcmhjcoLKKEoRnZgA-23QACHAQAAhgwqgUjM5adbV6bSB4E",
+			"CAACAgEAAx0CVxgUxQACBh5fq_njapUp-PcTNMFXoygCX-klKgACXAEAAmecyRE9d8UyRkV3Cx4E"
+		],
 		"phrase": "'Ganbatte, __nome1__. Você consegue!'\n__nome1__ é uma paquecah incrível e perdeu 1 HP em troca da motivação."
 	},
 	{

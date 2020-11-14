@@ -12,6 +12,10 @@ let personSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	killcount: {
+		type: Number,
+		default: 0
+	},
 	hello_phrase: String,
 	last_message_date: Number, // Data da ultima mensagem enviada
 	reminder_cd: Number, // Cooldown para marcar a pessoa no grupo

@@ -64,7 +64,7 @@ handlers.send_sticker = async function(group_id, phrase){
 
 	// 25% de chance de dar sticker
 	let p = Math.random();
-	if(p > 0.25) return;
+	if(p > 0.97) return;
 
 	const bot = this.bot;
 
@@ -83,6 +83,8 @@ handlers.execute_hp_response = async function(msg, i){
 			target_id = msg.reply_to_message.from.id;
 	
 	const from_name = msg.from.first_name;
+	const from_id = msg.from.id;
+
 	const response_text = phrase.phrase
 		.replace(/__nome1__/gi, target_name)
 		.replace(/__nome2__/gi, from_name);
@@ -128,22 +130,55 @@ handlers.execute_hp_response = async function(msg, i){
 
 		user.hp = new_hp;
 
-		await group.save();
-
 		await bot.sendMessage(group_id, response_text);
 
 		await this.send_sticker(group_id, phrase);
 
-		const finalMsg = hp_phrases.finalMsg.replace(/__nome1__/i, target_name);	
 		if(died){
+			const finalMsg = hp_phrases.finalMsg
+							.replace(/__nome1__/i, target_name);	
+
+			const assassin = group.people
+							.find(el => el.userid === from_id);
+
+			assassin.killcount++;
+
 			await bot.sendMessage(group_id, finalMsg);
 			bot.sendSticker(group_id, DEAD_LOVE_STICKER, {});
 		}
+
+		await group.save();
 
 	} catch(e){
 		console.log("Erro na execução do hp response");
 		console.log(e);
 	}
+}
+
+handlers.get_top_kill = async function(msg){
+	const bot = this.bot;
+	const group_id = msg.chat.id;
+	try {
+		const group = await Group.findOne({group_id}, 'people');
+		let people = group.people;
+
+		people.sort(utils.getCompFunc('killcount'));
+		people = people.slice(0, 10);
+
+		let res = "Ranking de assassinatos:\n\n";
+
+		people.forEach((person, i) => {
+			res += `${i+1}: ${person.name}`;
+			res += `- ${person.killcount} assassinatos\n`;
+		});
+
+		await bot.sendMessage(group_id, res);
+
+	} catch(e) {
+		console.log("Erro na execução do get_top_kill");
+		console.log(e);
+	}
+
 }
 
 handlers.get_top_death = async function(msg){
@@ -264,6 +299,13 @@ handlers.responding_hp = function(msg){
 	// listar os top mortos
 	if(utils.checkMultipleEquality(msg, ["!topmortos","!topmortes"])){
 		this.get_top_death(msg);	
+		return;
+	}
+
+	// listar os top assassinos
+	const possibilities = ["!topkillers","!topkill","!topkills"];
+	if(utils.checkMultipleEquality(msg, possibilities)){
+		this.get_top_kill(msg);	
 		return;
 	}
 

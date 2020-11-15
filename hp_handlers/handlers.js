@@ -64,7 +64,7 @@ handlers.send_sticker = async function(group_id, phrase){
 
 	// 25% de chance de dar sticker
 	let p = Math.random();
-	if(p > 0.97) return;
+	if(p > 0.25) return;
 
 	const bot = this.bot;
 

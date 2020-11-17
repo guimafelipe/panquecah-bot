@@ -59,7 +59,8 @@
 		"pattern": "sentada",
 		"damage": 5,
 		"stickers":[
-			"CAACAgEAAx0CVxgUxQACBnRfrrnp_YpUhtsaiVvZOmzT864UzQACpw8AApl_iALYbndmL81Lch4E"
+			"CAACAgEAAx0CVxgUxQACBnRfrrnp_YpUhtsaiVvZOmzT864UzQACpw8AApl_iALYbndmL81Lch4E",
+			"CAACAgEAAx0CVxgUxQACB29ftDb829oG6Xbg3YVgNcr5fa7JLQACRAADkLDTHjgD6sElRm0-HgQ"
 		],
 		"phrase": "__nome1__ tomou SENTADAS. Isso custou 5 de HP."
 	},
@@ -73,7 +74,8 @@
 		"damage": 5,
 		"stickers":[
 			"CAACAgEAAx0CVxgUxQACBFhfqdIG1XDfVHuopa5G44_dEQjNRQACEhQAApl_iAKr5PcuS87asR4E",
-			"CAACAgEAAx0CVxgUxQACBFlfqdI__u-Bw8L_hRFWd951mjYUdgACJA8AApl_iAKjUa-Vn_CEmh4E"
+			"CAACAgEAAx0CVxgUxQACBFlfqdI__u-Bw8L_hRFWd951mjYUdgACJA8AApl_iAKjUa-Vn_CEmh4E",
+			"CAACAgEAAx0CVxgUxQACB25ftDb8qICzQvy4mr-kppVpW9lc9wACegADkLDTHmEyRK-nWqgpHgQ"
 		],
 		"phrase": "__nome1__ levou uma mamada surpresa.\n5 de HP também foram mamados."
 	},
@@ -338,6 +340,10 @@
 	{
 		"pattern": "pedestal",
 		"damage": 4,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACB2xftDb83txaxV2DiFc0RDopAAGaj9MAAnwAA5Cw0x57W-ubFjDE8R4E",
+			"CAACAgEAAx0CVxgUxQACB21ftDb8c2XgtdUKM1dtkN1hlebC7AACWwADkLDTHr3wYHOyJbEKHgQ"
+		],
 		"phrase": "__nome2__ colocou __nome1__ em um pedestal, para ser adorada como a deusah panquecah que é.\n-4 HP para a deusah."
 	},
 	{

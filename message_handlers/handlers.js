@@ -83,7 +83,7 @@ handlers.init = function(){
 
 
 		const perdi = "perdi";
-		const chance = 0.35;
+		const chance = 0; // desativando O JOGO
 		if(utils.checkIfContains(msg, perdi)){
 			const poss = Math.random();
 			if(poss < chance){

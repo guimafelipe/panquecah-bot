@@ -4,7 +4,9 @@
 		"pattern": "beijinho",
 		"damage": 1,
 		"stickers":[
-			"CAACAgUAAx0CVxgUxQACBmBfrrje9pB9n7ueG3qE-FbE1dXl_gACcB8AAsZRxhWYf_u-UzIFEB4E"
+			"CAACAgUAAx0CVxgUxQACBmBfrrje9pB9n7ueG3qE-FbE1dXl_gACcB8AAsZRxhWYf_u-UzIFEB4E",
+			"CAACAgIAAx0CVxgUxQACCJZgw98PvJjT6JSlo7k_Uy-UOY3VAQACTQADtun_HbFU9fgRGDKPHwQ",
+			"CAACAgQAAx0CVxgUxQACCJpgw-CGexhjcg9hgU-p6jWHMX13HwACPgwAAhgwqgUi2dKt1m6VUh8E"
 		],
 		"phrase": "__nome1__ tomou um beijinho! :3\n__nome1__ perdeu 1 de HP."
 	},
@@ -26,6 +28,9 @@
 	{
 		"pattern": "abraço",
 		"damage": 3,
+		"stickers":[
+			"CAACAgQAAx0CVxgUxQACCJlgw-A-BNx8As8vo55u4UJf9IZ7-wACggsAAhgwqgXBI2yQKrN8BB8E"
+		],
 		"phrase": "__nome1__ ganhou um abraço quentinho e perdeu 3 de HP."
 	},
 	{
@@ -52,7 +57,8 @@
 		"stickers":[
 			"CAACAgIAAx0CVxgUxQACBe5fq_Na50GQJwewAdUD35KO_vAlvQACOgADtun_HRXne1aD6i3-HgQ",
 			"CAACAgQAAx0CVxgUxQACBe9fq_Nx1ZtDHJNUb0GUPX1woJYipQACqAADS2nuEHGlMQoVwUakHgQ",
-			"CAACAgEAAx0CVxgUxQACBmJfrrj_9HLfEqD1R_4tBsG7_vmAmwACuwEAAgdG1yOzXGbRE2wCZx4E"
+			"CAACAgEAAx0CVxgUxQACBmJfrrj_9HLfEqD1R_4tBsG7_vmAmwACuwEAAgdG1yOzXGbRE2wCZx4E",
+			"CAACAgEAAx0CVxgUxQACCHpgw9rw1K_a5ROfaMQ2kEqYvnP7gwACCAADU1QOHu2xOx7gOJMEHwQ"
 		],
 		"phrase": "Oishi, oishi. Headpat pra você (e -3 de HP) :3"
 	},
@@ -164,6 +170,10 @@
 	{
 		"pattern": "lambida",
 		"damage": 4,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACCJtgw-DDi-SxZ4tpWOEXr7If0JlL4wACSRQAApl_iAJ9JuaxabnAYh8E",
+			"CAACAgEAAx0CVxgUxQACCJxgw-Dxkni0ZtJouJ4SevUM5Q4uBAACGRIAApl_iAIFYCS3YQHt4x8E"
+		],
 		"phrase": "__nome1__ recebeu uma lambida bem gostosa :9 \nPerdeu 4 de HP por ser uma vadiah deliciosa."
 	},
 	{
@@ -234,6 +244,9 @@
 	{
 		"pattern": "anotado",
 		"damage": 0,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACCJdgw991aIHrXHNmk51xisJkR16rkgACPQADkLDTHg7PcTr46hMbHwQ"
+		],
 		"phrase": "__nome2__ anotou algo para ser esquecido já já."
 	},
 	{
@@ -325,6 +338,9 @@
 	{
 		"pattern": "café",
 		"damage": -3,
+		"stickers":[
+			"CAACAgEAAx0CVxgUxQACCHtgw9sj-dI2nMjgzgEPB75xtm2_ywACDQADU1QOHvHW4KUORky_HwQ"
+		],
 		"phrase": "__nome1__ bebeu um café preto gostosinho. Recuperou 3 HP."
 	},
 	{
@@ -338,7 +354,9 @@
 		"stickers":[
 			"CAACAgQAAx0CVxgUxQACBW9fqfItsDQV9n1HXYmM8YNHM0zDDQACXgsAAhgwqgX0zL0-iy0TzB4E",
 			"CAACAgQAAx0CVxgUxQACBoZfrrq11WWf4aT1tii7o67Y16CnrQACewsAAhgwqgVB2l-JsCMaTR4E",
-			"CAACAgQAAx0CVxgUxQACBopfrrrnFIqqqh6qSrdwXc-UEQo7pQACXQsAAhgwqgXSTVP6Z34hBh4E"
+			"CAACAgQAAx0CVxgUxQACBopfrrrnFIqqqh6qSrdwXc-UEQo7pQACXQsAAhgwqgXSTVP6Z34hBh4E",
+			"CAACAgQAAx0CVxgUxQACCHlgw9p-TTA8xRaU-uYB8IZNIhmcrAACXgsAAhgwqgX0zL0-iy0TzB8E",
+			"CAACAgQAAx0CVxgUxQACCJhgw-AVAaCVjNjczp-2pBNV78WYPQACVwsAAhgwqgViypLWrf8zTx8E"
 		],
 		"phrase": "__nome1__ está fofinha e confortável no colinho de __nome2__.  Se sente muito amada e protegida. Onhonhonhonhóin x3 \n -3 HP"
 	},
@@ -384,7 +402,8 @@
 		"stickers":[
 			"CAACAgUAAx0CVxgUxQACBnxfrrpEkdDYF0MAAfDhDiYi9qJwl0UAAlMXAALGUcYVv9Xl-sePNVUeBA",
 			"CAACAgEAAx0CVxgUxQACBn9frrpeTn8rNx4z4filDH_HdVI8wwACjhQAApl_iAK3u7zQS8ge7h4E",
-			"CAACAgIAAx0CVxgUxQACB8pgvCUIcHE8mmLaCVR2TANlqgq5fgAC_xEAAowt_QcW4kl0jEbf4h8E"
+			"CAACAgIAAx0CVxgUxQACB8pgvCUIcHE8mmLaCVR2TANlqgq5fgAC_xEAAowt_QcW4kl0jEbf4h8E",
+			"CAACAgEAAx0CVxgUxQACCHxgw9u_VglJAAELIP1jyLnxRkAjm-gAAo4UAAKZf4gCt7u80EvIHu4fBA"
 		],
 		"phrase": "__nome1__ levou um tapão na cara de __nome2__. Acorda pra vida! Reage, panquecah!"
 	},
@@ -392,7 +411,8 @@
 		"pattern": "amarrada",
 		"damage": 4,
 		"stickers":[
-			"CAACAgEAAx0CVxgUxQACBWBfqfDfe5aSPMNk9tw644jYDmTx7QACKw4AApl_iAJc0tLtNLVdhB4E"
+			"CAACAgEAAx0CVxgUxQACBWBfqfDfe5aSPMNk9tw644jYDmTx7QACKw4AApl_iAJc0tLtNLVdhB4E",
+			"CAACAgEAAx0CVxgUxQACCIpgw9yzAwigde8Eo8FmWOXYo3cDngACTQ8AApl_iAKgG61k_oziYh8E"
 		],
 		"phrase": "__nome1__ foi artisticamente restringida por cordas. Espero que __nome2__ saiba desamarrar.\nPerdeu 4 HP (e a sensação do braço esquerdo)."
 	},
@@ -405,7 +425,8 @@
 		"pattern": "beijo grego",
 		"damage": 4,
 		"stickers":[
-			"CAACAgEAAx0CVxgUxQACBm1frrmWTFl_vAbtWfN1jzSxbO_TuAAC_xEAApl_iAIzUn5c1VFFYx4E"
+			"CAACAgEAAx0CVxgUxQACBm1frrmWTFl_vAbtWfN1jzSxbO_TuAAC_xEAApl_iAIzUn5c1VFFYx4E",
+			"CAACAgEAAx0CVxgUxQACCH5gw9wtuFlKAAHdbUeMNgHnct0z038AAv8RAAKZf4gCM1J-XNVRRWMfBA"
 		],
 		"phrase": "__nome1__ sentiu a língua de __nome2__ adentrar onde o sol não bate. Ficou louquinha e perdeu 4 HP."
 	},
@@ -420,7 +441,8 @@
 		"stickers":[
 			"CAACAgIAAx0CVxgUxQACBfNfq_QxoNnSVh6fjmuqOAXT2LKzKgACmwADf_QzHN-J0LoDwD_cHgQ",
 			"CAACAgIAAx0CVxgUxQACBl1frriyjQXaByGxW2FYyEtSL6244gACTgADf_QzHEOqxIhPdAVpHgQ",
-			"CAACAgEAAx0CVxgUxQACBmtfrrl-L3pGkAoWmVBJ8-mCdHj3gAACBhEAApl_iAK2Qoe8l8GB9B4E"
+			"CAACAgEAAx0CVxgUxQACBmtfrrl-L3pGkAoWmVBJ8-mCdHj3gAACBhEAApl_iAK2Qoe8l8GB9B4E",
+			"CAACAgEAAx0CVxgUxQACCIxgw9zlpqP2qhmO5hVd3K-GkbjdpgACBhEAApl_iAK2Qoe8l8GB9B8E"
 		],
 		"phrase": "__nome1__ recebeu na cara jatos de sorvete de baunilha convenientemente líquido de vários machos deliciosos.\nPerdeu 3 HP."
 	},
@@ -572,7 +594,8 @@
 			"CAACAgIAAx0CVxgUxQACBQRfqd4QT91taotuIlwPbXzE8W2SowACWAADf_QzHF4n9-wdd_XEHgQ",
 			"CAACAgIAAx0CVxgUxQACBQVfqd4Zc-CkUMS3s2RMGl5u4-cg-QACKQADf_QzHH9cLe531WIZHgQ",
 			"CAACAgIAAx0CVxgUxQACBQZfqd4ht_oCgc3U2tEgoA99rcBURwACMAADf_QzHMjkQnCZzYrGHgQ",
-			"CAACAgIAAx0CVxgUxQACBQdfqd4u0ftZfeDAq1mNM5zHYMviegACRAADf_QzHEstd4oEi45FHgQ"
+			"CAACAgIAAx0CVxgUxQACBQdfqd4u0ftZfeDAq1mNM5zHYMviegACRAADf_QzHEstd4oEi45FHgQ",
+			"CAACAgEAAx0CVxgUxQACCIdgw9x_txUbzsIob34VJXi4t7vloQACzQ0AApl_iALrbkYqhf1Kjx8E"
 		],
 		"phrase": "__nome2__ colocou uma coleira em __nome1__. \nAgora __nome1__ só anda de quatro, come do potinho e faz barulho de bichinho. \n__nome1__ está muito realizada e perdeu 4 HP."
 	},

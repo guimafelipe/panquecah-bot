@@ -64,7 +64,11 @@ handlers.send_sticker = async function(group_id, phrase){
 
 	// 25% de chance de dar sticker
 	let p = Math.random();
-	if(p > 0.25) return;
+	let threshold = ('IS_DEV' in process.env) ? 0.99 : 0.25;
+
+	console.log(threshold);
+
+	if(p > threshold) return;
 
 	const bot = this.bot;
 

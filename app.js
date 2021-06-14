@@ -41,5 +41,5 @@ handlers.set_bot(bot);
 hp_handlers.set_bot(bot);
 reminder.set_bot(bot);
 stickers.set_bot(bot);
-commands.set_bot(bot);
+commands.set_bot(bot, hp_handlers);
 error_handlers.set_bot(bot);

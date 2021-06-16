@@ -165,7 +165,10 @@
 	{
 		"pattern": "cafungada",
 		"damage": 0,
-		"phrase": "__nome1__ foi cafungada.\n'Você tem um cheiro delicioso, sua vadiah. Cheiro de panquecah~'"
+		"phrase": "__nome1__ foi cafungada.\n'Você tem um cheiro delicioso, sua vadiah. Cheiro de panquecah~'",
+		"gifs":[
+			"CgACAgQAAx0CVxgUxQACB-RgyaL-01Bye7Z4V2PeirCmTwc2sQACBwIAArXrpVILwgVs72f2Ax8E"
+		]
 	},
 	{
 		"pattern": "lambida",
@@ -181,7 +184,8 @@
 		"damage": 3,
 		"stickers": [
 			"CAACAgEAAx0CVxgUxQACBExfqc6eateoL52hpE_awepWjdLbZgACHwADU1QOHmmIYIc25GYBHgQ",
-			"CAACAgQAAx0CVxgUxQACBoFfrrpxPqz114AR--V7lbRiXDp_fgACAQwAAktp7hAyEaPcX1tVXh4E"
+			"CAACAgQAAx0CVxgUxQACBoFfrrpxPqz114AR--V7lbRiXDp_fgACAQwAAktp7hAyEaPcX1tVXh4E",
+			"CAACAgUAAx0CVxgUxQACCLpgyPOum1IEA-UfxGHRn7KpEQABXLUAAhEeAALGUcYVEqn-Ks_M_bgfBA"
 		],
 		"phrase": "__nome1__ recebeu uma lambidinha no lugar certo.\nNão se aguentou e perdeu 3 de HP."
 	},
@@ -608,6 +612,15 @@
 		"pattern": "inserida",
 		"damage": 3,
 		"phrase": "__nome2__ inseriu algo bem grande em __nome1__, que mal consegue andar e perdeu 3 HP."
+	},
+	{
+		"pattern": "bonk",
+		"damage": 4,
+		"phrase": "__nome1__ está horny! -4 hp",
+		"special": true,
+		"gifs": [
+			"CgACAgQAAx0CVxgUxQACCL5gyaKAPptB0leh8mpk9m2p-M66awACLQIAAuB7zFLHdDZ7XZ1C3B8E"
+		]
 	},
 	{
 		"pattern": "botada",

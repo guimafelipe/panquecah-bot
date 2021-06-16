@@ -60,23 +60,41 @@ async function checkIfIncluded(msg){
 }
 
 handlers.send_sticker = async function(group_id, phrase){
-	if(!phrase.stickers) return;
+	try{
+		let p = Math.random();
+		let threshold = ('IS_DEV' in process.env) ? 0.99 : 0.25;
 
-	// 25% de chance de dar sticker
-	let p = Math.random();
-	let threshold = ('IS_DEV' in process.env) ? 0.99 : 0.25;
+		if(phrase.special) p = 0.0;
 
-	console.log(threshold);
+		if(p > threshold) return;
 
-	if(p > threshold) return;
+		const bot = this.bot;
 
-	const bot = this.bot;
+		let n = 0;
+		if(phrase.stickers){
+			n = phrase.stickers.length;
+		}
+		let m = 0;
+		if(phrase.gifs){
+			m = phrase.gifs.length;
+		}
 
-	// pegar um sticker aleatório
-	const n = phrase.stickers.length;
-	const i = Math.floor(Math.random()*n);
 
-	await bot.sendSticker(group_id, phrase.stickers[i], {});
+		// pegar um sticker aleatório
+		let i = Math.floor(Math.random()*(n+m));
+
+		if(i < n){
+			await bot.sendSticker(group_id, phrase.stickers[i], {});
+		} else {
+			i -= n;
+			if(i < m){
+				await bot.sendDocument(group_id, phrase.gifs[i], {});
+			}
+		}
+	} catch(e){
+		console.log("Erro enviando sticker ou gif");
+		console.log(e);
+	}
 }
 
 handlers.execute_hp_response = async function(msg, i){

@@ -17,7 +17,8 @@ handlers.set_bot = function (bot) {
 };
 
 handlers.handle_remove = async function(msg){
-	const command = msg.text.substr(7); // Tamanho da string "remove "
+	// Tamanho da string "remove "
+	const command = msg.text.substr(7).toLowerCase();
 	const group_id = msg.chat.id;
 
 	const sticker_code = msg.reply_to_message.sticker.file_id;
@@ -54,7 +55,8 @@ handlers.handle_remove = async function(msg){
 }
 
 handlers.handle_add = async function(msg){
-	const command = msg.text.substr(4); // tamanho da string "add "
+	// 4 = tamanho da string "add "
+	const command = msg.text.substr(4).toLowerCase();
 	const group_id = msg.chat.id;
 
 	const sticker_code = msg.reply_to_message.sticker.file_id;

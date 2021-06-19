@@ -16,38 +16,33 @@ handlers.set_bot = function (bot) {
 };
 
 handlers.handle_remove = async function(msg){
-	const command = msg.text.substr(7);
+	const command = msg.text.substr(7); // Tamanho da string "remove "
 	const group_id = msg.chat.id;
-
-	console.log(command);
 
 	const sticker_code = msg.reply_to_message.sticker.file_id;
 	const unique = msg.reply_to_message.sticker.file_unique_id;
 
 	try{
 		const group = await Group.findOne({group_id});
-
 		let cmd = group.commands.find(el => el.name === command);
 
+		// Procura o comando no grupo. Ele precisa ter sido usado
+		// antes para esse aqui funcionar
 		if(cmd){
+			// Procura o sticker pelo file_unique_id
 			let stck = cmd.stickers.find(el => el.unique===unique);
-			console.log(cmd);
-			/*
-			cmd.stickers.splice(0, cmd.stickers.length);
-			await group.save();
-			*/
 			if(stck){
 				let index = cmd.stickers.indexOf(stck);
 				cmd.stickers.splice(index, 1);
 				await group.save();
-				await this.bot.sendMessage(group_id, r_success_msg, 
+				await this.bot.sendMessage(group_id, r_success_msg,
 					{reply_to_message_id: msg.message_id});
 			} else {
-				await this.bot.sendMessage(group_id, naotem_msg, 
+				await this.bot.sendMessage(group_id, naotem_msg,
 					{reply_to_message_id: msg.message_id});
 			}
 		} else {
-			await this.bot.sendMessage(group_id, fail_msg, 
+			await this.bot.sendMessage(group_id, fail_msg,
 				{reply_to_message_id: msg.message_id});
 		}
 	} catch(e){
@@ -58,7 +53,7 @@ handlers.handle_remove = async function(msg){
 }
 
 handlers.handle_add = async function(msg){
-	const command = msg.text.substr(4);
+	const command = msg.text.substr(4); // tamanho da string "add "
 	const group_id = msg.chat.id;
 
 	const sticker_code = msg.reply_to_message.sticker.file_id;
@@ -71,16 +66,16 @@ handlers.handle_add = async function(msg){
 
 		if(cmd){
 			if(cmd.stickers.find(el => el.unique === unique)){
-				await this.bot.sendMessage(group_id, jatem_msg, 
+				await this.bot.sendMessage(group_id, jatem_msg,
 					{reply_to_message_id: msg.message_id});
 			} else {
 				cmd.stickers.push({code:sticker_code,unique:unique});
 				await group.save();
-				await this.bot.sendMessage(group_id, success_msg, 
+				await this.bot.sendMessage(group_id, success_msg,
 					{reply_to_message_id: msg.message_id});
 			}
 		} else {
-			await this.bot.sendMessage(group_id, fail_msg, 
+			await this.bot.sendMessage(group_id, fail_msg,
 				{reply_to_message_id: msg.message_id});
 		}
 	} catch(e){
@@ -96,11 +91,6 @@ handlers.handle_msg = function(msg){
 
 	if(!msg.hasOwnProperty('reply_to_message')){
 		return;
-	}
-
-	// não tem problema nesse caso ser bot
-	if(msg.reply_to_message.from.is_bot){
-		//return;
 	}
 
 	if(!msg.reply_to_message.sticker){

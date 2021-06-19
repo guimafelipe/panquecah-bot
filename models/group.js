@@ -22,12 +22,18 @@ let personSchema = new mongoose.Schema({
 	reminded: { type: Boolean, default: false}
 });
 
+let stickerSchema = new mongoose.Schema({
+	code: String,
+	unique: String
+});
+
 let commandSchema = new mongoose.Schema({
 	name: String,
 	usages: {
 		type: Number,
 		default: 0
-	}
+	},
+	stickers: [stickerSchema]
 });
 
 let groupSchema = new mongoose.Schema({

@@ -42,6 +42,7 @@ handlers.init = function(){
 							'buceta', 'pau', 'pinto'];
 
 		if(utils.checkMultiple(msg, nsfw_arr)){
+			return; // desativando por enquanto
 			this.nsfw_counter++;
 			if(this.nsft_limit > this.nsfw_counter) return;
 			bot.sendSticker(msg.chat.id, SHIMONETA_STICKER,

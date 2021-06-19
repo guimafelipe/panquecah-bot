@@ -1,12 +1,13 @@
 const 	Group 		= require('../models/group'),
 		utils		= require('../utils/utils'),
+		emoji		= require('node-emoji');
 		mongoose	= require('mongoose');
 
-const fail_msg = "Não consegui achar esse comando =/";
-const jatem_msg = "Esse sticker já foi adicionado..";
-const naotem_msg = "Esse sticker não estava adicionado..";
-const success_msg = "Adicionado ^-^";
-const r_success_msg = "Removido ^-^";
+const fail_msg = emoji.emojify("Não consegui achar esse comando :pensive:");
+const jatem_msg = emoji.emojify("Esse sticker já foi adicionado.. :thinking_face:");
+const naotem_msg = emoji.emojify("Esse sticker não estava adicionado.. :thinking_face:");
+const success_msg = emoji.emojify("Adicionado :blush:");
+const r_success_msg = emoji.emojify("Removido :blush:");
 
 const handlers = module.exports = {};
 

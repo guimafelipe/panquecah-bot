@@ -29,7 +29,8 @@ const 	handlers = require('./message_handlers/handlers'),
 		reminder = require('./hp_handlers/reminder'),
 		stickers = require('./sticker_and_gifs_handlers/handlers'),
 		commands = require('./commands/commands'),
-		add_sticker = require('./add_sticker_service/handlers'),
+		add_sticker = require('./add_sticker_service/handlers_sticker'),
+		add_gif = require('./add_sticker_service/handlers_gif'),
 		hp_handlers = require('./hp_handlers/handlers');
 
 mongoose.connect(DB_URI || 'mongodb://localhost:27017/panquecahbot',
@@ -44,4 +45,5 @@ reminder.set_bot(bot);
 stickers.set_bot(bot);
 commands.set_bot(bot, hp_handlers);
 add_sticker.set_bot(bot);
+add_gif.set_bot(bot);
 error_handlers.set_bot(bot);

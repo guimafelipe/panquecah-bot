@@ -73,6 +73,20 @@ handlers.get_group_stickers = async function(group_id, pattern){
 	}
 }
 
+handlers.get_group_gifs = async function(group_id, pattern){
+	try{
+		const group = await Group.findOne({group_id});
+		let commands = group.commands;
+		let command = commands.find(el => el.name === pattern);
+		return command.gifs;
+	} catch(e) {
+		console.log("Erro ao pegar gifs do grupo");
+		console.log(e);
+		let arr = [];
+		return arr;
+	}
+}
+
 handlers.send_sticker = async function(group_id, phrase){
 	try{
 		let p = Math.random();
@@ -100,14 +114,24 @@ handlers.send_sticker = async function(group_id, phrase){
 		// cuidado com undefined
 		let o = group_stickers.length | 0;
 
+		let group_gifs = 
+			await this.get_group_gifs(group_id, phrase.pattern);
+		group_gifs = group_gifs.map(el => el.code);
+			
+		let q = group_gifs.length | 0;
+
 		console.log(group_stickers);
+		console.log(group_gifs);
 
 		console.log(n);
 		console.log(m);
 		console.log(o);
+		console.log(q);
 
 		// pegar um sticker aleatório
-		let i = Math.floor(Math.random()*(n+m+o));
+		let i = Math.floor(Math.random()*(n+m+o+q));
+
+		console.log(i);
 
 		if(i < n){
 			await bot.sendSticker(group_id, phrase.stickers[i], {});
@@ -122,7 +146,13 @@ handlers.send_sticker = async function(group_id, phrase){
 
 		i-= m;
 		if(i < o){
-			await bot.sendDocument(group_id, group_stickers[i], {});
+			await bot.sendSticker(group_id, group_stickers[i], {});
+			return;
+		}
+
+		i-= o;
+		if(i < q){
+			await bot.sendDocument(group_id, group_gifs[i], {});
 			return;
 		}
 

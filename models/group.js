@@ -27,13 +27,19 @@ let stickerSchema = new mongoose.Schema({
 	unique: String
 });
 
+let gifSchema = new mongoose.Schema({
+	code: String,
+	unique: String
+});
+
 let commandSchema = new mongoose.Schema({
 	name: String,
 	usages: {
 		type: Number,
 		default: 0
 	},
-	stickers: [stickerSchema]
+	stickers: [stickerSchema],
+	gifs: [gifSchema]
 });
 
 let groupSchema = new mongoose.Schema({

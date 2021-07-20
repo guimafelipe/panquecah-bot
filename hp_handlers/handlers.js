@@ -192,6 +192,56 @@ handlers.send_sticker = async function(group_id, phrase){
 	}
 }
 
+handlers.att_command = async function(phrase, group_id){
+	// Here, we insert this command in the group in database, to
+	// further the members be able to insert stickers/gifs and
+	// also to count the number of usages
+	const group = await Group.findOne({group_id});
+	try{
+		const command = phrase.pattern;
+		let cmd = group.commands.find(el => el.name === command);
+
+		if(cmd){
+			cmd.usages++;
+		} else {
+			group.commands.push({
+				name: command,
+				usages: 1
+			});
+		}
+		await group.save();
+	} catch(e){
+		console.log("Erro no comando");
+		console.log(e);
+	}
+	// fim att comandos
+}
+
+handlers.execute_simple = async function(msg, i){
+	const bot = this.bot;
+	// Getting the command information in the json
+	const phrase = hp_phrases.regular[i];
+
+	const group_id = msg.chat.id;
+	try{
+
+		// Atualizando comando no database do grupo
+		this.att_command(phrase, group_id);
+
+		const group = await Group.findOne({group_id});
+
+		// Try to send sticker/gif
+		await this.send_sticker(group_id, phrase);
+
+		// Save the state of the group in database
+		await group.save();
+
+	} catch(e){
+		console.log("Erro na execução do hp response simple");
+		console.log(e);
+	}
+}
+
 // This method executes a response for a command
 handlers.execute_hp_response = async function(msg, i){
 	const bot = this.bot;
@@ -215,28 +265,10 @@ handlers.execute_hp_response = async function(msg, i){
 	const group_id = msg.chat.id;
 
 	try{
+		// Atualizando comando no database do grupo
+		this.att_command(phrase, group_id);
+
 		const group = await Group.findOne({group_id});
-
-		// Here, we insert this command in the group in database, to
-		// further the members be able to insert stickers/gifs and
-		// also to count the number of usages
-		try{
-			const command = phrase.pattern;
-			let cmd = group.commands.find(el => el.name === command);
-
-			if(cmd){
-				cmd.usages++;
-			} else {
-				group.commands.push({
-					name: command,
-					usages: 1
-				});
-			}
-		} catch(e){
-			console.log("Erro no comando");
-			console.log(e);
-		}
-		// fim att comandos
 
 		// já foi incluso na chamada do check if included
 		const user = group.people.find(el => el.userid === target_id);
@@ -459,8 +491,14 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
-	// Test if message is a reply
-	if(!msg.hasOwnProperty('reply_to_message')){
+	const ind = phrases.findIndex(({pattern}) => 
+		utils.checkEquality(msg, pattern));
+
+	if(ind == -1) return;
+
+	// Test if message is a reply. If not, we execute if special
+	if(!msg.hasOwnProperty('reply_to_message') && phrases[ind].special){
+		this.execute_simple(msg, ind);
 		return;
 	}
 
@@ -469,10 +507,7 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
-	const ind = phrases.findIndex(({pattern}) => 
-		utils.checkEquality(msg, pattern));
-
-	if(ind != -1) this.execute_hp_response(msg, ind);
+	this.execute_hp_response(msg, ind);
 
 	return;
 }

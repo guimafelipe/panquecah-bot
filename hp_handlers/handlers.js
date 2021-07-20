@@ -14,12 +14,15 @@ handlers.set_bot = function (bot) {
 	this.init();
 };
 
+// This method checks if the group of this message is already in the database
 async function checkIfIncluded(msg){
 	const group_id = msg.chat.id;
 
 	try{
+		// Getting the group in database
 		let group = await Group.findOne({group_id});
 
+		// If not in database, create it
 		if(!group){
 			group = await Group.create({group_id});
 		}
@@ -28,14 +31,18 @@ async function checkIfIncluded(msg){
 		const name = msg.from.first_name;
 		const userid = msg.from.id;
 
+		// Getting if the person is in the group in database
 		const person = group.people.find(el => el.userid === userid);
 
 		if(person){
+			// If in the group, updates the time of its last
+			// message on the group, and other informations
 			person.last_message_date = Date.now();
 			person.name = name;
 			person.reminded = false;
 			await group.save();
 		} else {
+			// If not in the group, we create it
 			group.people.push({username,
 					userid,
 					name,
@@ -59,6 +66,9 @@ async function checkIfIncluded(msg){
 
 }
 
+// This method gets the stickers of the group in database,
+// which are the stickers created by its members for the given command.
+// returns an array
 handlers.get_group_stickers = async function(group_id, pattern){
 	try{
 		const group = await Group.findOne({group_id});
@@ -68,11 +78,15 @@ handlers.get_group_stickers = async function(group_id, pattern){
 	} catch(e) {
 		console.log("Erro ao pegar stickers do grupo");
 		console.log(e);
+		// We return a empty array if something goes wrong
 		let arr = [];
 		return arr;
 	}
 }
 
+// This method gets the gifs of the group in database,
+// which are the gifs created by its members for the given command.
+// returns an array
 handlers.get_group_gifs = async function(group_id, pattern){
 	try{
 		const group = await Group.findOne({group_id});
@@ -87,26 +101,39 @@ handlers.get_group_gifs = async function(group_id, pattern){
 	}
 }
 
+// This method try to send a sticker for a given commnad.
+// It also respect some probability
 handlers.send_sticker = async function(group_id, phrase){
 	try{
+		// Getting a random number to decide if the sticker
+		// will be sent or not.
 		let p = Math.random();
+
+		// Defining the theshold to send the sticker.
+		// 99% of chance when testing.
 		let threshold = ('IS_DEV' in process.env) ? 0.99 : 0.25;
 
+		// If it is a sticker that is set to be always sent.
 		if(phrase.special) p = 0.0;
 
+		// If the number is greater than the threshhold, we
+		// don't send the sticker
 		if(p > threshold) return;
 
 		const bot = this.bot;
 
 		let n = 0;
+		// getting the stickers defined in the json
 		if(phrase.stickers){
 			n = phrase.stickers.length;
 		}
 		let m = 0;
+		// getting the gifs defined in the json
 		if(phrase.gifs){
 			m = phrase.gifs.length;
 		}
 
+		// Getting the stickers defined by the members
 		let group_stickers =
 			await this.get_group_stickers(group_id, phrase.pattern);
 		group_stickers = group_stickers.map(el => el.code);
@@ -114,6 +141,7 @@ handlers.send_sticker = async function(group_id, phrase){
 		// cuidado com undefined
 		let o = group_stickers.length | 0;
 
+		// Getting the gifs defined by the members
 		let group_gifs = 
 			await this.get_group_gifs(group_id, phrase.pattern);
 		group_gifs = group_gifs.map(el => el.code);
@@ -128,7 +156,9 @@ handlers.send_sticker = async function(group_id, phrase){
 		console.log(o);
 		console.log(q);
 
-		// pegar um sticker aleatório
+		// Picking a random sticker/gif in the sample
+		// i is a index, and this value will be used to
+		// select the sticker/gif
 		let i = Math.floor(Math.random()*(n+m+o+q));
 
 		console.log(i);
@@ -162,26 +192,34 @@ handlers.send_sticker = async function(group_id, phrase){
 	}
 }
 
+// This method executes a response for a command
 handlers.execute_hp_response = async function(msg, i){
 	const bot = this.bot;
+	// Getting the command information in the json
 	const phrase = hp_phrases.regular[i];
 
+	// Target is the owner of the "reply_to" message
 	const target_name = msg.reply_to_message.from.first_name,
 			target_id = msg.reply_to_message.from.id;
 	
+	// From is the person who sent the command
 	const from_name = msg.from.first_name;
 	const from_id = msg.from.id;
 
-	const response_text = phrase.phrase
+	// If this command have a response text, we insert
+	// the names of the people involved in the text
+	const response_text = phrase.phrase ? phrase.phrase
 		.replace(/__nome1__/gi, target_name)
-		.replace(/__nome2__/gi, from_name);
+		.replace(/__nome2__/gi, from_name) : null;
 
 	const group_id = msg.chat.id;
 
 	try{
 		const group = await Group.findOne({group_id});
 
-		// Atualizando comandos
+		// Here, we insert this command in the group in database, to
+		// further the members be able to insert stickers/gifs and
+		// also to count the number of usages
 		try{
 			const command = phrase.pattern;
 			let cmd = group.commands.find(el => el.name === command);
@@ -205,10 +243,12 @@ handlers.execute_hp_response = async function(msg, i){
 		const curr_hp = user.hp;
 		const damage = phrase.damage;
 
+		// Doing the damage
 		let new_hp = curr_hp - damage;
 
 		let died = false;
 
+		// Check if the person died, and counting it
 		if(new_hp <= 0){
 			died = true;
 			new_hp = MAX_HP;
@@ -217,10 +257,15 @@ handlers.execute_hp_response = async function(msg, i){
 
 		user.hp = new_hp;
 
-		await bot.sendMessage(group_id, response_text);
+		// If there is a response text, we always send it
+		if(response_text){
+			await bot.sendMessage(group_id, response_text);
+		}
 
+		// Try to send sticker/gif
 		await this.send_sticker(group_id, phrase);
 
+		// If the person died, send the message indicating it
 		if(died){
 			const finalMsg = hp_phrases.finalMsg
 							.replace(/__nome1__/i, target_name);	
@@ -228,12 +273,14 @@ handlers.execute_hp_response = async function(msg, i){
 			const assassin = group.people
 							.find(el => el.userid === from_id);
 
+			// Counting kills to the author in the database
 			assassin.killcount++;
 
 			await bot.sendMessage(group_id, finalMsg);
 			bot.sendSticker(group_id, DEAD_LOVE_STICKER, {});
 		}
 
+		// Save the state of the group in database
 		await group.save();
 
 	} catch(e){
@@ -242,6 +289,8 @@ handlers.execute_hp_response = async function(msg, i){
 	}
 }
 
+// This method returns a list with the ranking of the top 10
+// killers in the group
 handlers.get_top_kill = async function(msg){
 	const bot = this.bot;
 	const group_id = msg.chat.id;
@@ -249,6 +298,7 @@ handlers.get_top_kill = async function(msg){
 		const group = await Group.findOne({group_id}, 'people');
 		let people = group.people;
 
+		// Sorting and getting the top 10
 		people.sort(utils.getCompFunc('killcount'));
 		people = people.slice(0, 10);
 
@@ -268,6 +318,8 @@ handlers.get_top_kill = async function(msg){
 
 }
 
+// This method returns a list with the ranking of the top 10
+// people with most deaths in the group
 handlers.get_top_death = async function(msg){
 	const bot = this.bot;
 	const group_id = msg.chat.id;
@@ -275,6 +327,7 @@ handlers.get_top_death = async function(msg){
 		const group = await Group.findOne({group_id}, 'people');
 		let people = group.people;
 
+		// Sorting and getting the top 10
 		people.sort(utils.getCompFunc('deaths'));
 		people = people.slice(0, 10);
 
@@ -293,6 +346,7 @@ handlers.get_top_death = async function(msg){
 	}
 }
 
+// This method gets the 10 most used commands in the group
 handlers.get_top_commands = async function(msg){
 	const bot = this.bot;
 	const group_id = msg.chat.id;
@@ -319,6 +373,8 @@ handlers.get_top_commands = async function(msg){
 	}
 }
 
+// This method returns the commands in the group that have stickers
+// DEPRECATED
 handlers.get_with_stickers = async function(msg){
 	try{
 		const phrases = hp_phrases.regular;
@@ -343,6 +399,7 @@ handlers.get_with_stickers = async function(msg){
 	}
 }
 
+// Gets all the available commands
 handlers.get_all_commands = function(msg){
 	try{
 		const phrases = hp_phrases.regular;

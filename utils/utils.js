@@ -5,6 +5,9 @@ utils.checkIfContains = function (msg, pat) {
 }
 
 utils.checkEquality = function (msg, pat) {
+	console.log("Comparacao do utils");
+	console.log(msg.text.toLowerCase());
+	console.log(pat);
 	return msg.text.toLowerCase() === pat;
 }
 

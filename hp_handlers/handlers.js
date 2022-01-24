@@ -72,9 +72,12 @@ async function checkIfIncluded(msg){
 // returns an array
 handlers.get_group_stickers = async function(group_id, pattern){
 	try{
+		console.log("Procurando stickers pro comando " + pattern);
 		const group = await Group.findOne({group_id});
 		let commands = group.commands;
 		let command = commands.find(el => el.name === pattern);
+		console.log("Comando encontrado: ");
+		console.log(command);
 		return command.stickers;
 	} catch(e) {
 		console.log("Erro ao pegar stickers do grupo");
@@ -104,6 +107,29 @@ handlers.get_group_gifs = async function(group_id, pattern){
 }
 
 
+// This methods gets the full command of the group in database
+// given an pattern. Only the ones created by menbers of the group.
+// If not found, should return null.
+handlers.get_group_command = async function(group_id, msg){
+	try{
+		console.log("\n\nProcurando no grupo o comando " + msg.text);
+		const group = await Group.findOne({group_id});
+
+		let commands = group.commands;
+		console.log("Comandos do grupo: ");
+		console.log(commands);
+		let command = commands.find(el => utils.checkEquality(msg, el.name));
+		console.log("Comando a ser retornado: ");
+		console.log(command);
+		return command;
+	} catch(e){
+		console.log("Erro ao pegar comando do grupo");
+		console.log(e);
+		return null;
+	}
+}
+
+
 // This method try to send a sticker for a given commnad.
 // It also respect some probability
 handlers.send_sticker = async function(group_id, phrase){
@@ -127,18 +153,24 @@ handlers.send_sticker = async function(group_id, phrase){
 
 		let n = 0;
 		// getting the stickers defined in the json
-		if(phrase.stickers){
+		if(phrase.pattern && phrase.stickers){
 			n = phrase.stickers.length;
 		}
 		let m = 0;
 		// getting the gifs defined in the json
-		if(phrase.gifs){
+		if(phrase.pattern & phrase.gifs){
 			m = phrase.gifs.length;
+		}
+
+		let pattern = phrase.pattern;
+
+		if(!pattern){
+			pattern = phrase.name;
 		}
 
 		// Getting the stickers defined by the members
 		let group_stickers =
-			await this.get_group_stickers(group_id, phrase.pattern);
+			await this.get_group_stickers(group_id, pattern);
 		group_stickers = group_stickers.map(el => el.code);
 
 		// cuidado com undefined
@@ -146,12 +178,12 @@ handlers.send_sticker = async function(group_id, phrase){
 
 		// Getting the gifs defined by the members
 		let group_gifs = 
-			await this.get_group_gifs(group_id, phrase.pattern);
+			await this.get_group_gifs(group_id, pattern);
 		group_gifs = group_gifs.map(el => el.code);
 			
 		let q = group_gifs.length | 0;
 
-		console.log("Processing response for command " + phrase.pattern + ".");
+		console.log("Processing response for command " + pattern + ".");
 		console.log("Group stickers for this command:")
 		console.log(group_stickers);
 		console.log("Group gifs for this command:")
@@ -206,7 +238,10 @@ handlers.att_command = async function(phrase, group_id){
 	// also to count the number of usages
 	const group = await Group.findOne({group_id});
 	try{
-		const command = phrase.pattern;
+		let command = phrase.pattern;
+		if(!command){
+			command = phrase.name;
+		}
 		let cmd = group.commands.find(el => el.name === command);
 
 		if(cmd){
@@ -226,16 +261,12 @@ handlers.att_command = async function(phrase, group_id){
 }
 
 
-handlers.execute_simple = async function(msg, i){
-	const bot = this.bot;
-	// Getting the command information in the json
-	const phrase = hp_phrases.regular[i];
-
+handlers.execute_simple = async function(msg, phrase){
 	const group_id = msg.chat.id;
 	try{
 
 		// Atualizando comando no database do grupo
-		this.att_command(phrase, group_id);
+		await this.att_command(phrase, group_id);
 
 		const group = await Group.findOne({group_id});
 
@@ -253,10 +284,8 @@ handlers.execute_simple = async function(msg, i){
 
 
 // This method executes a response for a command
-handlers.execute_hp_response = async function(msg, i){
+handlers.execute_hp_response = async function(msg, phrase){
 	const bot = this.bot;
-	// Getting the command information in the json
-	const phrase = hp_phrases.regular[i];
 
 	// Target is the owner of the "reply_to" message
 	const target_name = msg.reply_to_message.from.first_name,
@@ -270,13 +299,15 @@ handlers.execute_hp_response = async function(msg, i){
 	// the names of the people involved in the text
 	const response_text = phrase.phrase ? phrase.phrase
 		.replace(/__nome1__/gi, target_name)
-		.replace(/__nome2__/gi, from_name) : null;
+		.replace(/nome_1/gi, target_name)
+		.replace(/__nome2__/gi, from_name)
+		.replace(/nome_2/gi, from_name) : null;
 
 	const group_id = msg.chat.id;
 
 	try{
 		// Atualizando comando no database do grupo
-		this.att_command(phrase, group_id);
+		await this.att_command(phrase, group_id);
 
 		const group = await Group.findOne({group_id});
 
@@ -332,7 +363,7 @@ handlers.execute_hp_response = async function(msg, i){
 }
 
 
-handlers.responding_hp = function(msg){
+handlers.responding_hp = async function(msg){
 
 	const phrases = hp_phrases.regular;
 	const {text} = msg;
@@ -340,11 +371,23 @@ handlers.responding_hp = function(msg){
 	const ind = phrases.findIndex(({pattern}) => 
 		utils.checkEquality(msg, pattern));
 
-	if(ind == -1) return;
+	// If not in the json, try in database.
+	let cmd = null;
+	if(ind == -1){
+		console.log("Comando " + text + "não encontrado no json.");
+		console.log("Tentativa de achar no database.");
+		cmd = await this.get_group_command(msg.chat.id, msg);
+	} else {
+		cmd = phrases[ind];
+	}
+
+	if(!cmd) return;
 
 	// Test if message is a reply. If not, we execute if special
-	if(!msg.hasOwnProperty('reply_to_message') && phrases[ind].special){
-		this.execute_simple(msg, ind);
+	if(!msg.hasOwnProperty('reply_to_message')){
+		if(cmd.special){
+			this.execute_simple(msg, cmd);
+		}
 		return;
 	}
 
@@ -353,7 +396,7 @@ handlers.responding_hp = function(msg){
 		return;
 	}
 
-	this.execute_hp_response(msg, ind);
+	this.execute_hp_response(msg, cmd);
 
 	return;
 }

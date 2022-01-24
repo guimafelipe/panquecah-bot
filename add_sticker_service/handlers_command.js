@@ -7,7 +7,7 @@ const naotem_msg = emoji.emojify("Não consegui achar esse comando :pensive:");
 const jatem_msg = emoji.emojify("Esse comando já existe.. :thinking_face:");
 const success_msg = emoji.emojify("Adicionado :blush:");
 const r_success_msg = emoji.emojify("Removido :blush:");
-const text_msg = "Diga o texto desse comando: ";
+const text_msg = "Diga o texto desse comando (exemplo: \"nome_1 cheirou nome_2\"): ";
 
 const handlers = module.exports = {};
 

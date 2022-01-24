@@ -299,9 +299,9 @@ handlers.execute_hp_response = async function(msg, phrase){
 	// the names of the people involved in the text
 	const response_text = phrase.phrase ? phrase.phrase
 		.replace(/__nome1__/gi, target_name)
-		.replace(/nome_1/gi, target_name)
+		.replace(/nome_2/gi, target_name)
 		.replace(/__nome2__/gi, from_name)
-		.replace(/nome_2/gi, from_name) : null;
+		.replace(/nome_1/gi, from_name) : null;
 
 	const group_id = msg.chat.id;
 

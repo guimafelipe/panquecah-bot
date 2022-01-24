@@ -69,21 +69,21 @@ handlers.init = function(){
 			{reply_to_message_id: msg.message_id});
 		}
 
+		/* Transforming in legacy ancient code
 		const yaoi = "yaoi", gay = "gay";
 		/*const musiquinha = ` gosta de assistir Ya-Ya-oi
 								Ela passa o dia assistindo Ya-Ya-oi
 								É nosebleed pra cá
 								É nosebleed pra lá
-								É nosebleed pra todo lado, Ya-Ya-oi`;*/
+								É nosebleed pra todo lado, Ya-Ya-oi`;
 
 		if(utils.checkMultiple(msg, [yaoi, gay])){
 			bot.sendMessage(msg.chat.id, "#Yaoi? (talves owo)",
 			{reply_to_message_id: msg.message_id});
 		}
-
-
+		
 		const perdi = "perdi";
-		const chance = 0; // desativando O JOGO
+		const chance = 0;
 		if(utils.checkIfContains(msg, perdi)){
 			const poss = Math.random();
 			if(poss < chance){
@@ -103,6 +103,7 @@ handlers.init = function(){
 			bot.sendMessage(msg.chat.id, ">.<",
 			{reply_to_message_id: msg.message_id});
 		}
+		*/
 
 	});
 	

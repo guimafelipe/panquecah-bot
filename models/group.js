@@ -38,6 +38,15 @@ let commandSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	special: {
+		type: Boolean,
+		default: false
+	},
+	damage: {
+		type: Number,
+		default: 1
+	},
+	phrase: String,
 	stickers: [stickerSchema],
 	gifs: [gifSchema]
 });

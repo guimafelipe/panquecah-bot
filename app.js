@@ -31,6 +31,7 @@ const 	handlers = require('./message_handlers/handlers'),
 		commands = require('./commands/commands'),
 		add_sticker = require('./add_sticker_service/handlers_sticker'),
 		add_gif = require('./add_sticker_service/handlers_gif'),
+		add_command = require('./add_sticker_service/handlers_command'),
 		hp_handlers = require('./hp_handlers/handlers'),
 		info_handler = require('./hp_handlers/info_handler');
 
@@ -48,4 +49,5 @@ stickers.set_bot(bot);
 commands.set_bot(bot, info_handler);
 add_sticker.set_bot(bot);
 add_gif.set_bot(bot);
+add_command.set_bot(bot);
 error_handlers.set_bot(bot);

@@ -1,7 +1,6 @@
 const	Group		= require('../models/group'),
 		hp_phrases	= require('./hp_words.json'),
-		utils		= require('../utils/utils'),
-		mongoose	= require('mongoose');
+		utils		= require('../utils/utils');
 
 const standart_message = 'Oi, __name__ panquecah! Estou com saudades!';
 const MAX_HP = 10;
@@ -9,10 +8,12 @@ const DEAD_LOVE_STICKER = 'CAACAgQAAx0CVxgUxQACAQ5ec9vZEq4-Zvs9MOw0440wk7jamgACi
 
 const handlers = module.exports = {};
 
+
 handlers.set_bot = function (bot) {
 	this.bot = bot;
 	this.init();
 };
+
 
 // This method checks if the group of this message is already in the database
 async function checkIfIncluded(msg){
@@ -66,6 +67,7 @@ async function checkIfIncluded(msg){
 
 }
 
+
 // This method gets the stickers of the group in database,
 // which are the stickers created by its members for the given command.
 // returns an array
@@ -84,6 +86,7 @@ handlers.get_group_stickers = async function(group_id, pattern){
 	}
 }
 
+
 // This method gets the gifs of the group in database,
 // which are the gifs created by its members for the given command.
 // returns an array
@@ -100,6 +103,7 @@ handlers.get_group_gifs = async function(group_id, pattern){
 		return arr;
 	}
 }
+
 
 // This method try to send a sticker for a given commnad.
 // It also respect some probability
@@ -148,20 +152,24 @@ handlers.send_sticker = async function(group_id, phrase){
 			
 		let q = group_gifs.length | 0;
 
+		console.log("Processing response for command " + phrase.pattern + ".");
+		console.log("Group stickers for this command:")
 		console.log(group_stickers);
+		console.log("Group gifs for this command:")
 		console.log(group_gifs);
 
-		console.log(n);
-		console.log(m);
-		console.log(o);
-		console.log(q);
+		console.log("Number of standart stickers for this command: " + n);
+		console.log("Number of standart gifs for this command: " + m);
+		console.log("Number of group stickers for this command: " + o);
+		console.log("Number of group stickers for this command: " + q);
+		console.log("Total number of options: " + (n+m+o+q));
 
 		// Picking a random sticker/gif in the sample
 		// i is a index, and this value will be used to
 		// select the sticker/gif
 		let i = Math.floor(Math.random()*(n+m+o+q));
 
-		console.log(i);
+		console.log("Choosen one: " + i);
 
 		if(i < n){
 			await bot.sendSticker(group_id, phrase.stickers[i], {});
@@ -192,6 +200,7 @@ handlers.send_sticker = async function(group_id, phrase){
 	}
 }
 
+
 handlers.att_command = async function(phrase, group_id){
 	// Here, we insert this command in the group in database, to
 	// further the members be able to insert stickers/gifs and
@@ -217,6 +226,7 @@ handlers.att_command = async function(phrase, group_id){
 	// fim att comandos
 }
 
+
 handlers.execute_simple = async function(msg, i){
 	const bot = this.bot;
 	// Getting the command information in the json
@@ -241,6 +251,7 @@ handlers.execute_simple = async function(msg, i){
 		console.log(e);
 	}
 }
+
 
 // This method executes a response for a command
 handlers.execute_hp_response = async function(msg, i){
@@ -321,175 +332,11 @@ handlers.execute_hp_response = async function(msg, i){
 	}
 }
 
-// This method returns a list with the ranking of the top 10
-// killers in the group
-handlers.get_top_kill = async function(msg){
-	const bot = this.bot;
-	const group_id = msg.chat.id;
-	try {
-		const group = await Group.findOne({group_id}, 'people');
-		let people = group.people;
-
-		// Sorting and getting the top 10
-		people.sort(utils.getCompFunc('killcount'));
-		people = people.slice(0, 10);
-
-		let res = "Ranking de assassinatos:\n\n";
-
-		people.forEach((person, i) => {
-			res += `${i+1}: ${person.name}`;
-			res += `- ${person.killcount} assassinatos\n`;
-		});
-
-		await bot.sendMessage(group_id, res);
-
-	} catch(e) {
-		console.log("Erro na execução do get_top_kill");
-		console.log(e);
-	}
-
-}
-
-// This method returns a list with the ranking of the top 10
-// people with most deaths in the group
-handlers.get_top_death = async function(msg){
-	const bot = this.bot;
-	const group_id = msg.chat.id;
-	try {
-		const group = await Group.findOne({group_id}, 'people');
-		let people = group.people;
-
-		// Sorting and getting the top 10
-		people.sort(utils.getCompFunc('deaths'));
-		people = people.slice(0, 10);
-
-		let res = "Ranking de mortes:\n\n";
-
-		people.forEach((person, i) => {
-			res += `${i+1}: ${person.name}`;
-			res += `- ${person.deaths} mortes\n`;
-		});
-
-		await bot.sendMessage(group_id, res);
-
-	} catch(e) {
-		console.log("Erro na execução do get_top_death");
-		console.log(e);
-	}
-}
-
-// This method gets the 10 most used commands in the group
-handlers.get_top_commands = async function(msg){
-	const bot = this.bot;
-	const group_id = msg.chat.id;
-
-	try{
-		const group = await Group.findOne({group_id}, 'commands');
-		let commands = group.commands;
-
-		commands.sort(utils.getCompFunc('usages'));
-		commands = commands.slice(0, 10);
-
-		let res = "Comandos mais usados nesse grupo:\n\n";
-
-		commands.forEach((command, i) => {
-			res += `${i+1}: ${command.name} `;
-			res += `- ${command.usages} usos\n`;
-		});
-
-		await bot.sendMessage(group_id, res);
-
-	} catch(e) {
-		console.log("Erro na execução do get_top_commands");
-		console.log(e);
-	}
-}
-
-// This method returns the commands in the group that have stickers
-// DEPRECATED
-handlers.get_with_stickers = async function(msg){
-	try{
-		const phrases = hp_phrases.regular;
-
-		let response = "Comandos da panquecah com stickers:\n";
-
-		let pats = phrases.filter(el => el.stickers != undefined)
-							.map(({pattern}) => pattern);
-
-		// Ordem alfabética
-		pats.sort();
-		
-		pats.forEach(pattern => {
-			response += `* ${pattern}\n`;
-		});
-
-		const group_id = msg.chat.id;
-		this.bot.sendMessage(group_id, response);
-	} catch(e) {
-		console.log("Erro na execução do get_with_stickers");
-		console.log(e);
-	}
-}
-
-// Gets all the available commands
-handlers.get_all_commands = function(msg){
-	try{
-		const phrases = hp_phrases.regular;
-
-		let response = "Comandos da panquecah:\n";
-
-		let pats = phrases.map(({pattern}) => pattern);
-
-		// Ordem alfabética
-		pats.sort();
-		
-		pats.forEach(pattern => {
-			response += `* ${pattern}\n`;
-		});
-
-		const group_id = msg.chat.id;
-		this.bot.sendMessage(group_id, response);
-	} catch(e) {
-		console.log("Erro na execução do get_all_commands");
-		console.log(e);
-	}
-}
 
 handlers.responding_hp = function(msg){
 
 	const phrases = hp_phrases.regular;
 	const {text} = msg;
-
-	// listar os comandos do bot
-	if(utils.checkEquality(msg, "!comandos")){
-		this.get_all_commands(msg);
-		return;
-	}
-
-	// listar os comandos com stickers
-	if(utils.checkMultipleEquality(msg, ["!sticker","!stickers"])){
-		this.get_with_stickers(msg);
-		return;
-	}
-
-	// listar os top mortos
-	if(utils.checkMultipleEquality(msg, ["!topmortos","!topmortes"])){
-		this.get_top_death(msg);	
-		return;
-	}
-
-	// listar os top assassinos
-	const possibilities = ["!topkillers","!topkill","!topkills"];
-	if(utils.checkMultipleEquality(msg, possibilities)){
-		this.get_top_kill(msg);	
-		return;
-	}
-
-	// listar os top comandos
-	if(utils.checkMultipleEquality(msg, ["!topcomandos"])){
-		this.get_top_commands(msg);	
-		return;
-	}
 
 	const ind = phrases.findIndex(({pattern}) => 
 		utils.checkEquality(msg, pattern));
@@ -511,6 +358,7 @@ handlers.responding_hp = function(msg){
 
 	return;
 }
+
 
 handlers.init = function(){
 
